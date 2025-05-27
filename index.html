@@ -173,6 +173,7 @@
         .logo img {
             height: 80px;
             margin-right: 15px;
+            transition: all 0.3s ease;
         }
         
         .logo-text {
@@ -180,6 +181,7 @@
             font-weight: 700;
             color: var(--primary);
             text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
         
         .logo-text span {
@@ -240,6 +242,7 @@
         .mobile-menu-btn:hover {
             color: var(--secondary);
         }
+		
         
         /* ===== HERO SECTION ===== */
         .hero {
@@ -389,7 +392,7 @@
         
         .welcome-text {
             flex: 1;
-            opacity: 0;
+            opacity: 1;
             transform: translateY(30px);
             transition: all 0.8s ease;
         }
@@ -413,7 +416,7 @@
             animation: float 8s ease-in-out infinite;
             transform-style: preserve-3d;
             perspective: 1000px;
-            opacity: 0;
+            opacity: 1;
             transform: translateY(30px) rotateY(10deg);
             transition: all 0.8s ease 0.2s;
         }
@@ -449,7 +452,7 @@
             transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             border: 1px solid rgba(0,0,0,0.03);
-            opacity: 0;
+            opacity: 1;
             transform: translateY(20px);
         }
         
@@ -523,7 +526,7 @@
             width: 40%;
             height: 100%;
             background: url('assets/images/programs-bg.jpg') center/cover no-repeat;
-            opacity: 0.08;
+            opacity: 0.;
         }
         
         .programs::after {
@@ -937,7 +940,7 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            opacity: 0;
+            opacity: 1;
             transform: translateY(30px);
         }
         
@@ -1325,15 +1328,32 @@
         }
         
         @media (max-width: 768px) {
+            .header-container {
+                padding: 5px 0;
+            }
+            
+            .logo img {
+                height: 50px;
+                margin-right: 10px;
+            }
+            
+            .logo-text {
+                font-size: 1.2rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 180px;
+            }
+            
             nav ul {
                 display: none;
                 position: fixed;
-                top: 90px;
+                top: 70px;
                 left: 0;
                 width: 100%;
                 background-color: white;
                 flex-direction: column;
-                padding: 20px 0;
+                padding: 10px 0;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
                 z-index: 999;
             }
@@ -1345,11 +1365,16 @@
             nav ul li {
                 margin: 0;
                 text-align: center;
-                padding: 15px 0;
+                padding: 10px 0;
             }
             
             .mobile-menu-btn {
                 display: block;
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                padding-top: 70px;
             }
             
             .hero h1 {
@@ -1394,12 +1419,31 @@
         }
         
         @media (max-width: 576px) {
+            .logo img {
+                height: 40px;
+                margin-right: 8px;
+            }
+            
+            .logo-text {
+                font-size: 1rem;
+                max-width: 150px;
+            }
+            
+            .header-container {
+                padding: 3px 0;
+            }
+            
+            nav ul {
+                top: 60px;
+            }
+            
             .section-title h2 {
                 font-size: 2rem;
             }
             
             .hero {
                 min-height: 700px;
+                padding-top: 60px;
             }
             
             .hero h1 {
@@ -1456,6 +1500,21 @@
             
             .tiles-container {
                 grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .logo-text {
+                font-size: 0.9rem;
+                max-width: 120px;
+            }
+            
+            .logo img {
+                height: 35px;
+            }
+            
+            .mobile-menu-btn {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -1870,14 +1929,39 @@
 
     <script>
         // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navMenu = document.getElementById('navMenu');
+const header = document.getElementById('header');
+
+mobileMenuBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+    mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    
+    // Close menu when clicking outside
+    if (navMenu.classList.contains('show')) {
+        document.addEventListener('click', closeMenuOnClickOutside);
+    } else {
+        document.removeEventListener('click', closeMenuOnClickOutside);
+    }
+});
+
+function closeMenuOnClickOutside(e) {
+    if (!header.contains(e.target)) {
+        navMenu.classList.remove('show');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        document.removeEventListener('click', closeMenuOnClickOutside);
+    }
+}
+
+// Close menu when clicking a link
+document.querySelectorAll('#navMenu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        document.removeEventListener('click', closeMenuOnClickOutside);
+    });
+});
         
         // Header Scroll Effect - Removed color change to keep header white
         const header = document.getElementById('header');
