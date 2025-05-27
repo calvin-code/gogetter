@@ -150,7 +150,6 @@
             top: 0;
             z-index: 1000;
             transition: all 0.4s ease;
-			
         }
         
         .header-container {
@@ -242,7 +241,6 @@
         .mobile-menu-btn:hover {
             color: var(--secondary);
         }
-		
         
         /* ===== HERO SECTION ===== */
         .hero {
@@ -526,7 +524,7 @@
             width: 40%;
             height: 100%;
             background: url('assets/images/programs-bg.jpg') center/cover no-repeat;
-            opacity: 0.;
+            opacity: 0.1;
         }
         
         .programs::after {
@@ -687,60 +685,31 @@
             color: var(--secondary);
             font-size: 0.9rem;
         }
+        
         /* ===== PROGRAMS SECTION HEADER STYLES ===== */
-.programs .section-title h2 {
-    color: var(--text-light); /* White text to contrast with dark blue background */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow for better readability */
-    font-size: 2.8rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 15px;
-}
+        .programs .section-title h2 {
+            color: var(--text-light); /* White text to contrast with dark blue background */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow for better readability */
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
 
-.programs .section-title h2::after {
-    background: linear-gradient(90deg, var(--secondary), var(--accent)); /* Gradient underline */
-    height: 4px;
-    width: 100px;
-}
+        .programs .section-title h2::after {
+            background: linear-gradient(90deg, var(--secondary), var(--accent)); /* Gradient underline */
+            height: 4px;
+            width: 100px;
+        }
 
-.programs .section-title p {
-    color: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.8;
-}
+        .programs .section-title p {
+            color: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
 
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    .programs .section-title h2 {
-        font-size: 2.3rem;
-    }
-    
-    .programs .section-title p {
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .programs .section-title h2 {
-        font-size: 2rem;
-    }
-    
-    .programs .section-title p {
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .programs .section-title h2 {
-        font-size: 1.8rem;
-    }
-    
-    .programs .section-title p {
-        font-size: 0.95rem;
-    }
-}
         /* ===== PHOTO SLIDER ===== */
         .photo-slider {
             background-color: white;
@@ -1215,8 +1184,8 @@
         
         /* ===== ANIMATIONS ===== */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0.1; }
+            to { opacity: 7; }
         }
         
         @keyframes fadeInDown {
@@ -1325,6 +1294,11 @@
             .tiles-container {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
+            
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 30px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1413,8 +1387,49 @@
                 align-items: center;
             }
             
+            .program-tab {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+            
             .tiles-container {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .footer-column {
+                text-align: center;
+            }
+            
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-links li::before {
+                display: none;
+            }
+            
+            .footer-links li {
+                padding-left: 0;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .contact-info p {
+                padding-left: 0;
+                text-align: center;
+            }
+            
+            .contact-info i {
+                display: none;
             }
         }
         
@@ -1501,11 +1516,19 @@
             .tiles-container {
                 grid-template-columns: 1fr;
             }
+            
+            .mission-highlights {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta p {
+                font-size: 1rem;
+            }
         }
         
         @media (max-width: 400px) {
             .logo-text {
-                font-size: 0.5rem;
+                font-size: 0.555rem;
                 max-width: 150px;
             }
             
@@ -1515,6 +1538,19 @@
             
             .mobile-menu-btn {
                 font-size: 1.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .program-tab {
+                padding: 5px 5px;
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -1529,7 +1565,7 @@
                 <img src="logo.png" alt="Go Getter Academy Logo" id="logo-img">
                 <div class="logo-text">The Go Getter <span>Academy - Kyaani</span></div>
             </a>
-			|||
+            
             <nav>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
                     <i class="fas fa-bars"></i>
@@ -1567,9 +1603,13 @@
                 <h2>Welcome to Our Academy</h2>
                 <p>Discover a world of learning where every child's potential is unlocked and nurtured</p>
             </div>
+            <div class="welcome-image">
+                <img src="assets/images/welcome.jpeg" alt="Students learning in classroom">
+            </div>
             <div class="welcome-content">
                 <div class="welcome-text">
                     <p>Founded with a vision to revolutionize education, The Go Getter Academy - Kyaani is committed to providing a holistic learning experience that goes beyond textbooks. Our innovative approach combines academic excellence with character building to prepare students for the challenges of tomorrow.</p>
+                    
                     <p>We believe every child is unique, and our tailored educational programs are designed to help each student discover and maximize their potential in a supportive and stimulating environment.</p>
                     
                     <div class="mission-highlights">
@@ -1589,9 +1629,6 @@
                             <p>Modern labs and technology integration for future readiness</p>
                         </div>
                     </div>
-                </div>
-                <div class="welcome-image">
-                    <img src="assets/images/welcome.jpeg" alt="Students learning in classroom">
                 </div>
             </div>
         </div>
@@ -1929,42 +1966,41 @@
 
     <script>
         // Mobile Menu Toggle
-const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const navMenu = document.getElementById('navMenu');
-const header = document.getElementById('header');
-
-mobileMenuBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-    mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
-        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-    
-    // Close menu when clicking outside
-    if (navMenu.classList.contains('show')) {
-        document.addEventListener('click', closeMenuOnClickOutside);
-    } else {
-        document.removeEventListener('click', closeMenuOnClickOutside);
-    }
-});
-
-function closeMenuOnClickOutside(e) {
-    if (!header.contains(e.target)) {
-        navMenu.classList.remove('show');
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        document.removeEventListener('click', closeMenuOnClickOutside);
-    }
-}
-
-// Close menu when clicking a link
-document.querySelectorAll('#navMenu a').forEach(link => {
-    link.addEventListener('click', () => {
-        navMenu.classList.remove('show');
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        document.removeEventListener('click', closeMenuOnClickOutside);
-    });
-});
-        
-        // Header Scroll Effect - Removed color change to keep header white
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
         const header = document.getElementById('header');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            
+            // Close menu when clicking outside
+            if (navMenu.classList.contains('show')) {
+                document.addEventListener('click', closeMenuOnClickOutside);
+            } else {
+                document.removeEventListener('click', closeMenuOnClickOutside);
+            }
+        });
+
+        function closeMenuOnClickOutside(e) {
+            if (!header.contains(e.target)) {
+                navMenu.classList.remove('show');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                document.removeEventListener('click', closeMenuOnClickOutside);
+            }
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                document.removeEventListener('click', closeMenuOnClickOutside);
+            });
+        });
+        
+        // Header Scroll Effect
         const logoImg = document.getElementById('logo-img');
         
         window.addEventListener('scroll', () => {
@@ -2091,7 +2127,7 @@ document.querySelectorAll('#navMenu a').forEach(link => {
             }
         }
         
-        // Program Tabs Functionality
+        // Program Tabs Functionality - Fixed version
         const programTabs = document.querySelectorAll('.program-tab');
         const programContents = document.querySelectorAll('.program-content');
         
