@@ -242,115 +242,9 @@
             color: var(--secondary);
         }
         
-        /* ===== HERO SECTION ===== */
-        .hero {
-            height: 100vh;
-            min-height: 700px;
-            background: linear-gradient(rgba(26, 58, 110, 0.85), rgba(26, 58, 110, 0.9)), 
-                        url('assets/images/hero-bg.jpg') center/cover no-repeat;
-            color: white;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(232, 185, 35, 0.15) 0%, transparent 30%),
-                        radial-gradient(circle at 80% 70%, rgba(214, 40, 40, 0.15) 0%, transparent 30%);
-            z-index: 0;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 3.8rem;
-            margin-bottom: 25px;
-            animation: fadeInDown 1s ease both;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease 0.3s both;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            animation: fadeInUp 1s ease 0.6s both;
-        }
-        
-        .motto {
-            font-style: italic;
-            font-size: 1.6rem;
-            margin-top: 40px;
-            color: rgba(255, 255, 255, 0.9);
-            animation: fadeIn 2s ease 1s both;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .motto::before,
-        .motto::after {
-            content: '"';
-            font-size: 2rem;
-            color: var(--secondary);
-            opacity: 1;
-            position: absolute;
-        }
-        
-        .motto::before {
-            top: -15px;
-            left: -25px;
-        }
-        
-        .motto::after {
-            bottom: -25px;
-            right: -25px;
-        }
-        
-        .motto span {
-            color: var(--secondary);
-            font-weight: bold;
-        }
-        
-        /* Floating particles animation */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-        }
-        
-        .particle {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.6);
-            border-radius: 50%;
-            animation: floatParticle linear infinite;
-        }
-        
-        /* ===== WELCOME SECTION ===== */
+        /* ===== WELCOME SECTION (Now at Top) ===== */
         .welcome {
+            padding-top: 120px;
             background-color: white;
             position: relative;
             overflow: hidden;
@@ -406,33 +300,118 @@
             color: #555;
         }
         
-        .welcome-image {
+        /* Welcome Slider Styles */
+        .welcome-slider {
             flex: 1;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
-            animation: float 8s ease-in-out infinite;
-            transform-style: preserve-3d;
-            perspective: 1000px;
-            opacity: 1;
-            transform: translateY(30px) rotateY(10deg);
-            transition: all 0.8s ease 0.2s;
+            position: relative;
+            height: 500px;
         }
         
-        .welcome-image.animated {
-            opacity: 1;
-            transform: translateY(0) rotateY(0);
-        }
-        
-        .welcome-image img {
+        .welcome-slider-container {
             width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 1s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
         }
         
-        .welcome-image:hover img {
-            transform: scale(1.05);
+        .welcome-slider-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .welcome-slider-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .welcome-slider-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .welcome-slider-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .welcome-slider-caption h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .welcome-slider-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .welcome-slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .welcome-slider-dot.active {
+            background-color: var(--secondary);
+            transform: scale(1.2);
+        }
+        
+        .welcome-slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            opacity: 0.8;
+        }
+        
+        .welcome-slider-arrow:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .welcome-slider-arrow.prev {
+            left: 15px;
+        }
+        
+        .welcome-slider-arrow.next {
+            right: 15px;
         }
         
         .mission-highlights {
@@ -505,6 +484,113 @@
         
         .highlight-card:hover p {
             color: rgba(255,255,255,0.9);
+        }
+        
+        /* ===== SHAPING FUTURE LEADERS SECTION (Former Hero) ===== */
+        .future-leaders {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(26, 58, 110, 0.85), rgba(26, 58, 110, 0.9)), 
+                        url('assets/images/hero-bg.jpg') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .future-leaders::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(232, 185, 35, 0.15) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(214, 40, 40, 0.15) 0%, transparent 30%);
+            z-index: 0;
+        }
+        
+        /* Floating particles animation */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: floatParticle linear infinite;
+        }
+        
+        .future-leaders-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .future-leaders h1 {
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease both;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+        }
+        
+        .future-leaders p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.3s both;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .future-leaders-btns {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.6rem;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeIn 2s ease 1s both;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .motto::before,
+        .motto::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--secondary);
+            opacity: 1;
+            position: absolute;
+        }
+        
+        .motto::before {
+            top: -15px;
+            left: -25px;
+        }
+        
+        .motto::after {
+            bottom: -25px;
+            right: -25px;
+        }
+        
+        .motto span {
+            color: var(--secondary);
+            font-weight: bold;
         }
         
         /* ===== PROGRAMS SECTION ===== */
@@ -694,6 +780,7 @@
             font-weight: 700;
             letter-spacing: 0.5px;
             margin-bottom: 15px;
+            opacity: 1; /* Fixed opacity as requested */
         }
 
         .programs .section-title h2::after {
@@ -1256,7 +1343,7 @@
         
         /* ===== RESPONSIVE STYLES ===== */
         @media (max-width: 1200px) {
-            .hero h1 {
+            .future-leaders h1 {
                 font-size: 3.5rem;
             }
             
@@ -1270,16 +1357,20 @@
                 flex-direction: column;
             }
             
-            .welcome-text, .welcome-image {
+            .welcome-text, .welcome-slider {
                 flex: none;
                 width: 100%;
+            }
+            
+            .welcome-slider {
+                height: 400px;
             }
             
             .section-title h2 {
                 font-size: 2.3rem;
             }
             
-            .hero h1 {
+            .future-leaders h1 {
                 font-size: 3rem;
             }
             
@@ -1312,11 +1403,11 @@
             }
             
             .logo-text {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                max-width: 180px;
+                max-width: 350px;
             }
             
             nav ul {
@@ -1347,19 +1438,19 @@
                 font-size: 1.5rem;
             }
             
-            .hero {
+            .future-leaders {
                 padding-top: 70px;
             }
             
-            .hero h1 {
+            .future-leaders h1 {
                 font-size: 2.5rem;
             }
             
-            .hero p {
+            .future-leaders p {
                 font-size: 1.1rem;
             }
             
-            .hero-btns {
+            .future-leaders-btns {
                 flex-direction: column;
                 align-items: center;
                 gap: 15px;
@@ -1435,17 +1526,17 @@
         
         @media (max-width: 576px) {
             .logo img {
-                height: 40px;
+                height: 35px;
                 margin-right: 8px;
             }
             
             .logo-text {
-                font-size: 1rem;
-                max-width: 150px;
+                font-size: 1.1rem;
+                max-width: 320px;
             }
             
             .header-container {
-                padding: 3px 0;
+                padding: 1px 0;
             }
             
             nav ul {
@@ -1456,16 +1547,16 @@
                 font-size: 2rem;
             }
             
-            .hero {
+            .future-leaders {
                 min-height: 700px;
                 padding-top: 60px;
             }
             
-            .hero h1 {
+            .future-leaders h1 {
                 font-size: 2rem;
             }
             
-            .hero p {
+            .future-leaders p {
                 font-size: 1rem;
             }
             
@@ -1524,6 +1615,20 @@
             .cta p {
                 font-size: 1rem;
             }
+            
+            .welcome-slider {
+                height: 300px;
+            }
+            
+            .welcome-slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .welcome-slider-caption h3 {
+                font-size: 1.2rem;
+            }
         }
         
         @media (max-width: 400px) {
@@ -1544,7 +1649,7 @@
                 font-size: 1.8rem;
             }
             
-            .hero h1 {
+            .future-leaders h1 {
                 font-size: 1.8rem;
             }
             
@@ -1582,30 +1687,58 @@
         </div>
     </header>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section class="hero">
-        <div class="particles" id="particles"></div>
-        <div class="hero-content">
-            <h1>Shaping Future Leaders</h1>
-            <p>At The Go Getter Academy - Kyaani, we provide quality education that nurtures creativity, critical thinking, and character development in a supportive environment.</p>
-            <div class="hero-btns">
-                <a href="academy.html" class="btn">Explore Programs</a>
-                <a href="contact.html" class="btn btn-accent">Enroll Now</a>
-            </div>
-            <p class="motto">Education is the passport to the future, for tomorrow belongs to those who prepare for it today. <span>- Malcolm X</span></p>
-        </div>
-    </section>
-
-    <!-- ===== WELCOME SECTION ===== -->
+    <!-- ===== WELCOME SECTION (Now at Top) ===== -->
     <section class="welcome" id="welcome">
         <div class="container">
             <div class="section-title">
                 <h2>Welcome to Our Academy</h2>
                 <p>Discover a world of learning where every child's potential is unlocked and nurtured</p>
             </div>
-            <div class="welcome-image">
-                <img src="assets/images/welcome.jpeg" alt="Students learning in classroom">
-            </div>
+            <!-- Welcome Image Slider -->
+                <div class="welcome-slider">
+                    <div class="welcome-slider-container">
+                        <div class="welcome-slider-track">
+                            <div class="welcome-slider-slide active">
+                                <img src="assets/images/welcome1.jpg" alt="Students in classroom">
+                                <div class="welcome-slider-caption">
+                                    <h3>Interactive Learning Environment</h3>
+                                </div>
+                            </div>
+                            <div class="welcome-slider-slide">
+                                <img src="assets/images/welcome2.jpg" alt="Science lab">
+                                <div class="welcome-slider-caption">
+                                    <h3>Modern Science Facilities</h3>
+                                </div>
+                            </div>
+                            <div class="welcome-slider-slide">
+                                <img src="assets/images/welcome3.jpg" alt="Art class">
+                                <div class="welcome-slider-caption">
+                                    <h3>Creative Arts Program</h3>
+                                </div>
+                            </div>
+                            <div class="welcome-slider-slide">
+                                <img src="assets/images/welcome4.jpg" alt="Playground">
+                                <div class="welcome-slider-caption">
+                                    <h3>Safe Play Areas</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="welcome-slider-arrow prev" id="welcomePrevSlide">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="welcome-slider-arrow next" id="welcomeNextSlide">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        
+                        <div class="welcome-slider-nav">
+                            <div class="welcome-slider-dot active" data-slide="0"></div>
+                            <div class="welcome-slider-dot" data-slide="1"></div>
+                            <div class="welcome-slider-dot" data-slide="2"></div>
+                            <div class="welcome-slider-dot" data-slide="3"></div>
+                        </div>
+                    </div>
+                </div>
             <div class="welcome-content">
                 <div class="welcome-text">
                     <p>Founded with a vision to revolutionize education, The Go Getter Academy - Kyaani is committed to providing a holistic learning experience that goes beyond textbooks. Our innovative approach combines academic excellence with character building to prepare students for the challenges of tomorrow.</p>
@@ -1630,7 +1763,25 @@
                         </div>
                     </div>
                 </div>
+                
+                
             </div>
+        </div>
+    </section>
+
+    <!-- ===== SHAPING FUTURE LEADERS SECTION (Former Hero) ===== -->
+    <section class="future-leaders">
+        <!-- Particles animation container -->
+        <div class="particles" id="future-particles"></div>
+        
+        <div class="future-leaders-content">
+            <h1>Shaping Future Leaders</h1>
+            <p>At The Go Getter Academy - Kyaani, we provide quality education that nurtures creativity, critical thinking, and character development in a supportive environment.</p>
+            <div class="future-leaders-btns">
+                <a href="academy.html" class="btn">Explore Programs</a>
+                <a href="contact.html" class="btn btn-accent">Enroll Now</a>
+            </div>
+            <p class="motto">Education is the passport to the future, for tomorrow belongs to those who prepare for it today. <span>- Malcolm X</span></p>
         </div>
     </section>
 
@@ -1917,14 +2068,15 @@
                     <h2>Ready to Join Our Community?</h2>
                 </div>
                 <p>We're excited to welcome new students and families to The Go Getter Academy - Kyaani. Our admissions team is ready to guide you through the enrollment process and answer any questions you may have.</p>
-                <div class="hero-btns">
+                <div class="future-leaders-btns">
                     <a href="contact.html" class="btn">Schedule a Visit</a>
                     <a href="academy.html#fees" class="btn btn-accent">View Fee Structure</a>
                 </div>
             </div>
         </div>
     </section>
-
+ 
+  
     <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
@@ -1964,13 +2116,15 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        const header = document.getElementById('header');
+   <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navMenu = document.getElementById('navMenu');
+    const header = document.getElementById('header');
 
-        mobileMenuBtn.addEventListener('click', () => {
+    if (mobileMenuBtn && navMenu) {
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent immediate closing when clicking the button
             navMenu.classList.toggle('show');
             mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
@@ -1984,7 +2138,7 @@
         });
 
         function closeMenuOnClickOutside(e) {
-            if (!header.contains(e.target)) {
+            if (!navMenu.contains(e.target) && e.target !== mobileMenuBtn) {
                 navMenu.classList.remove('show');
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 document.removeEventListener('click', closeMenuOnClickOutside);
@@ -1992,52 +2146,156 @@
         }
 
         // Close menu when clicking a link
-        document.querySelectorAll('#navMenu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('show');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                document.removeEventListener('click', closeMenuOnClickOutside);
+        const navLinks = document.querySelectorAll('#navMenu a');
+        if (navLinks.length > 0) {
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('show');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    document.removeEventListener('click', closeMenuOnClickOutside);
+                });
             });
-        });
-        
-        // Header Scroll Effect
+        }
+    }
+
+    // Header Scroll Effect
+    if (header) {
         const logoImg = document.getElementById('logo-img');
         
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
                 header.classList.add('scrolled');
-                logoImg.style.height = '60px';
+                if (logoImg) logoImg.style.height = '60px';
             } else {
                 header.classList.remove('scrolled');
-                logoImg.style.height = '80px';
+                if (logoImg) logoImg.style.height = '80px';
             }
         });
-        
-        // Smooth Scrolling for Anchor Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
+    }
+    
+    // Smooth Scrolling for Anchor Links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (this.getAttribute('href') === '#') return;
+            
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - (header ? header.offsetHeight : 80),
+                    behavior: 'smooth'
+                });
                 
-                if (this.getAttribute('href') === '#') return;
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    if (navMenu.classList.contains('show')) {
-                        navMenu.classList.remove('show');
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
+                // Close mobile menu if open
+                if (navMenu && navMenu.classList.contains('show')) {
+                    navMenu.classList.remove('show');
+                    if (mobileMenuBtn) mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                 }
+            }
+        });
+    });
+    
+    // Welcome Slider Functionality
+    function initWelcomeSlider() {
+        const sliderTrack = document.querySelector('.welcome-slider-track');
+        if (!sliderTrack) return;
+        
+        const slides = document.querySelectorAll('.welcome-slider-slide');
+        const dots = document.querySelectorAll('.welcome-slider-dot');
+        const prevBtn = document.getElementById('welcomePrevSlide');
+        const nextBtn = document.getElementById('welcomeNextSlide');
+        
+        let currentSlide = 0;
+        const slideCount = slides.length;
+        
+        function updateSlider() {
+            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update active class for slides
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        function goToSlide(index) {
+            currentSlide = (index + slideCount) % slideCount;
+            updateSlider();
+        }
+        
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+        
+        // Auto slide change
+        let slideInterval = setInterval(nextSlide, 5000);
+        
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+        
+        // Event listeners
+        if (nextBtn) nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetInterval();
+        });
+        
+        if (prevBtn) prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetInterval();
+        });
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const slideIndex = parseInt(this.getAttribute('data-slide'));
+                goToSlide(slideIndex);
+                resetInterval();
             });
         });
         
-        // Photo Slider Functionality
+        // Touch events for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        sliderTrack.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+        
+        sliderTrack.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            resetInterval();
+        }, {passive: true});
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextSlide();
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevSlide();
+            }
+        }
+    }
+    
+    // Photo Slider Functionality
+    function initPhotoSlider() {
         const sliderTrack = document.getElementById('sliderTrack');
+        if (!sliderTrack) return;
+        
         const slides = document.querySelectorAll('.slider-slide');
         const dots = document.querySelectorAll('.slider-dot');
         const prevBtn = document.getElementById('prevSlide');
@@ -2086,12 +2344,12 @@
         }
         
         // Event listeners
-        nextBtn.addEventListener('click', () => {
+        if (nextBtn) nextBtn.addEventListener('click', () => {
             nextSlide();
             resetInterval();
         });
         
-        prevBtn.addEventListener('click', () => {
+        if (prevBtn) prevBtn.addEventListener('click', () => {
             prevSlide();
             resetInterval();
         });
@@ -2126,9 +2384,11 @@
                 prevSlide();
             }
         }
-        
-        // Program Tabs Functionality - Fixed version
-        const programTabs = document.querySelectorAll('.program-tab');
+    }
+    
+    // Program Tabs Functionality
+    const programTabs = document.querySelectorAll('.program-tab');
+    if (programTabs.length > 0) {
         const programContents = document.querySelectorAll('.program-content');
         
         programTabs.forEach(tab => {
@@ -2144,63 +2404,66 @@
                 document.getElementById(tabId).classList.add('active');
             });
         });
+    }
+    
+    // Create floating particles for future leaders section
+    function createParticles() {
+        const particlesContainer = document.getElementById('future-particles');
+        if (!particlesContainer) return;
         
-        // Create floating particles for hero section
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = 20;
+        const particleCount = 20;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
             
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random size between 2px and 6px
-                const size = Math.random() * 4 + 2;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Random position
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                // Random opacity
-                particle.style.opacity = Math.random() * 0.5 + 0.1;
-                
-                // Random animation duration between 10s and 20s
-                const duration = Math.random() * 10 + 10;
-                particle.style.animation = `floatParticle ${duration}s linear infinite`;
-                
-                // Random delay
-                particle.style.animationDelay = `${Math.random() * 5}s`;
-                
-                particlesContainer.appendChild(particle);
-            }
+            // Random size between 2px and 6px
+            const size = Math.random() * 4 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            
+            // Random opacity
+            particle.style.opacity = Math.random() * 0.5 + 0.1;
+            
+            // Random animation duration between 10s and 20s
+            const duration = Math.random() * 10 + 10;
+            particle.style.animation = `floatParticle ${duration}s linear infinite`;
+            
+            // Random delay
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+            
+            particlesContainer.appendChild(particle);
         }
+    }
+    
+    // Scroll Animation for Elements
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.welcome-text, .welcome-slider, .highlight-card, .tile');
         
-        // Initialize particles
-        createParticles();
-        
-        // Scroll Animation for Elements
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.welcome-text, .welcome-image, .highlight-card, .tile');
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
             
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.classList.add('animated');
-                }
-            });
-        };
-        
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-        
-        // Initialize animations on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            animateOnScroll();
+            if (elementPosition < screenPosition) {
+                element.classList.add('animated');
+            }
         });
-    </script>
+    };
+    
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+    
+    // Initialize animations on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        initWelcomeSlider();
+        initPhotoSlider();
+        createParticles(); // Initialize particles for future leaders section
+        animateOnScroll();
+    });
+</script>
 </body>
 </html>
