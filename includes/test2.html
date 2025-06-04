@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Go Getter Academy - Kyaani | Home</title>
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        :root {
+            --primary: #1a3a6e;       /* Navy blue from logo */
+            --secondary: #f5a623;     /* Golden yellow from logo */
+            --accent: #e74c3c;        /* Vibrant red for accents */
+            --light: #f8f9fa;         /* Light background */
+            --dark: #212529;          /* Dark text color */
+            --text-light: #ffffff;    /* White text */
+            --text-muted: #6c757d;    /* Muted text */
+            --header-white: #ffffff;  /* Matching logo white */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        a:hover {
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            background-color: var(--secondary);
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(245, 166, 35, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(26, 58, 110, 0.3);
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .btn-accent:hover {
+            background-color: #c0392b;
+            box-shadow: 0 10px 25px rgba(192, 57, 43, 0.3);
+        }
+        
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 15px auto 0;
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            background-color: var(--header-white);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+			
+        }
+        
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            padding: 1px 0;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.03);
+        }
+        
+        .logo img {
+            height: 80px;
+            transition: all 0.4s ease;
+        }
+        
+        .logo-left img {
+            margin-right: 15px;
+        }
+        
+        .logo-right img {
+            margin-left: 15px;
+        }
+        
+        .logo-text {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .logo-text span {
+            color: var(--secondary);
+            font-weight: 800;
+        }
+        
+        nav {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--dark);
+            font-weight: 600;
+            position: relative;
+            padding: 10px 0;
+            font-size: 1.05rem;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border-radius: 3px;
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        nav ul li a.active {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            padding: 5px;
+            margin-top: 10px;
+        }
+        
+        .mobile-menu-btn:hover {
+            color: var(--secondary);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(26, 58, 110, 0.85), rgba(26, 58, 110, 0.9)), 
+                        url('assets/images/hero-bg.jpg') center/cover no-repeat;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(232, 185, 35, 0.15) 0%, transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(214, 40, 40, 0.15) 0%, transparent 30%);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            animation: fadeInDown 1s ease both;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease 0.3s both;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.6rem;
+            margin-top: 40px;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeIn 2s ease 1s both;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .motto::before,
+        .motto::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--secondary);
+            opacity: 1;
+            position: absolute;
+        }
+        
+        .motto::before {
+            top: -15px;
+            left: -25px;
+        }
+        
+        .motto::after {
+            bottom: -25px;
+            right: -25px;
+        }
+        
+        .motto span {
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* Floating particles animation */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: floatParticle linear infinite;
+        }
+        
+        /* ===== WELCOME SECTION ===== */
+        .welcome {
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .welcome::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(245, 166, 35, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .welcome::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(26, 58, 110, 0.05);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .welcome-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .welcome-text {
+            flex: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .welcome-text.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .welcome-text p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .welcome-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            animation: float 8s ease-in-out infinite;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            opacity: 1;
+            transform: translateY(30px) rotateY(10deg);
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .welcome-image.animated {
+            opacity: 1;
+            transform: translateY(0) rotateY(0);
+        }
+        
+        .welcome-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 1s ease;
+        }
+        
+        .welcome-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .mission-highlights {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .highlight-card {
+            background-color: white;
+            padding: 30px 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+            opacity: 1;
+            transform: translateY(20px);
+        }
+        
+        .highlight-card.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .highlight-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .highlight-card:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .highlight-card:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .highlight-card:hover h3,
+        .highlight-card:hover i {
+            color: white;
+        }
+        
+        .highlight-card i {
+            font-size: 3rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card p {
+            font-size: 0.95rem;
+            color: #666;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-card:hover p {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        /* ===== PROGRAMS SECTION ===== */
+        .programs {
+            background-color: var(--primary);
+            color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .programs::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url('assets/images/programs-bg.jpg') center/cover no-repeat;
+            opacity: 1;
+        }
+        
+        .programs::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(245, 166, 35, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .programs-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .program-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .program-tab {
+            padding: 15px 30px;
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            font-weight: 600;
+            border: 2px solid rgba(255,255,255,0.2);
+            font-size: 1.05rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .program-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            z-index: -1;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .program-tab:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .program-tab.active {
+            background-color: var(--secondary);
+            color: var(--primary);
+            border-color: var(--secondary);
+            box-shadow: 0 5px 20px rgba(245, 166, 35, 0.4);
+            transform: translateY(-3px);
+        }
+        
+        .program-tab.active::before {
+            opacity: 1;
+        }
+        
+        .program-content {
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .program-content.active {
+            display: block;
+        }
+        
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background-color: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 40px 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+        }
+        
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+            transition: height 0.6s ease;
+        }
+        
+        .program-card:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+        
+        .program-card:hover::before {
+            height: 100%;
+        }
+        
+        .program-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .program-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 3px;
+        }
+        
+        .program-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .program-card ul li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 30px;
+            line-height: 1.6;
+        }
+        
+        .program-card ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 3px;
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+        /* ===== PROGRAMS SECTION HEADER STYLES ===== */
+.programs .section-title h2 {
+    color: var(--text-light); /* White text to contrast with dark blue background */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow for better readability */
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+}
+
+.programs .section-title h2::after {
+    background: linear-gradient(90deg, var(--secondary), var(--accent)); /* Gradient underline */
+    height: 4px;
+    width: 100px;
+}
+
+.programs .section-title p {
+    color: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .programs .section-title h2 {
+        font-size: 2.3rem;
+    }
+    
+    .programs .section-title p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .programs .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .programs .section-title p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .programs .section-title h2 {
+        font-size: 1.8rem;
+    }
+    
+    .programs .section-title p {
+        font-size: 0.95rem;
+    }
+}
+        /* ===== PHOTO SLIDER ===== */
+        .photo-slider {
+            background-color: white;
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slider-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/images/slider-bg.jpg') center/cover no-repeat;
+            opacity: 0.03;
+            z-index: 0;
+        }
+        
+        .slider-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            z-index: 1;
+        }
+        
+        .slider-track {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .slider-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .slider-slide img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.9);
+        }
+        
+        .slide-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 40px;
+            text-align: center;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.8s ease 0.3s;
+        }
+        
+        .slider-slide.active .slide-caption {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .slide-caption h3 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            font-weight: 700;
+        }
+        
+        .slide-caption p {
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .slider-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,0.2);
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+        
+        .slider-dot::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--secondary);
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot:hover::before {
+            opacity: 0.5;
+            transform: scale(1);
+        }
+        
+        .slider-dot.active {
+            background-color: var(--secondary);
+            transform: scale(1.2);
+        }
+        
+        .slider-dot.active::before {
+            opacity: 0.3;
+            transform: scale(1.3);
+        }
+        
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            opacity: 0.8;
+        }
+        
+        .slider-arrow:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .slider-arrow.prev {
+            left: 30px;
+        }
+        
+        .slider-arrow.next {
+            right: 30px;
+        }
+        
+        /* ===== PREVIEW TILES ===== */
+        .preview-tiles {
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .preview-tiles::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(245, 166, 35, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .tiles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        
+        .tile {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .tile.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tile:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+        
+        .tile:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+        
+        .tile:nth-child(3) {
+            transition-delay: 0.3s;
+        }
+        
+        .tile:nth-child(4) {
+            transition-delay: 0.4s;
+        }
+        
+        .tile:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tile-image {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .tile-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.7));
+            z-index: 1;
+        }
+        
+        .tile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease, filter 0.8s ease;
+            filter: brightness(0.9);
+        }
+        
+        .tile:hover .tile-image img {
+            transform: scale(1.1);
+            filter: brightness(1);
+        }
+        
+        .tile-content {
+            padding: 20px 15px;
+            position: relative;
+        }
+        
+        .tile h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-size: 1.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tile h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 2px;
+            background-color: var(--secondary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        .tile:hover h3::after {
+            width: 60px;
+            background-color: var(--accent);
+        }
+        
+        .tile p {
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 0.85rem;
+        }
+        
+        .tile .btn {
+            padding: 8px 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* ===== CALL TO ACTION ===== */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), #0f2a52);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(232, 185, 35, 0.1);
+            border-radius: 50%;
+        }
+        
+        .cta h2 {
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta h2::after {
+            background-color: var(--secondary);
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta p {
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .footer-links li::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--secondary);
+            font-size: 0.7rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 10px;
+        }
+        
+        .contact-info p {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info i {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--secondary);
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-5px) scale(1.1);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 1;
+            }
+            20% {
+                transform: scale(25, 25);
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(40, 40);
+            }
+        }
+        
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) translateX(200px);
+                opacity: 0;
+            }
+        }
+        
+        /* ===== RESPONSIVE STYLES ===== */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            .slider-slide img {
+                height: 500px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .welcome-content {
+                flex-direction: column;
+            }
+            
+            .welcome-text, .welcome-image {
+                flex: none;
+                width: 100%;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .motto {
+                font-size: 1.5rem;
+            }
+            
+            .program-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .tiles-container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+            }
+            
+            .logo-left, .logo-right {
+                display: none;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+                margin: 10px 0;
+            }
+            
+            nav ul {
+                display: none;
+                position: fixed;
+                top: 120px;
+                left: 0;
+                width: 100%;
+                background-color: var(--header-white);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .slider-slide img {
+                height: 400px;
+            }
+            
+            .slide-caption {
+                padding: 25px;
+            }
+            
+            .slide-caption h3 {
+                font-size: 1.8rem;
+            }
+            
+            .program-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tiles-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero {
+                min-height: 700px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .motto {
+                font-size: 1.2rem;
+                margin-top: 25px;
+            }
+            
+            .motto::before,
+            .motto::after {
+                font-size: 2rem;
+            }
+            
+            .motto::before {
+                left: -20px;
+            }
+            
+            .motto::after {
+                right: -20px;
+            }
+            
+            .slider-slide img {
+                height: 300px;
+            }
+            
+            .slide-caption {
+                padding: 15px;
+            }
+            
+            .slide-caption h3 {
+                font-size: 1.5rem;
+            }
+            
+            .slide-caption p {
+                font-size: 0.95rem;
+            }
+            
+            .slider-arrow {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .program-card {
+                padding: 30px 20px;
+            }
+            
+            .tiles-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="header-top">
+                <div class="logo logo-left">
+                    <img src="assets/images/logo.png" alt="Go Getter Academy Logo" class="logo-img">
+                </div>
+                <div class="logo-text">The Go Getter <span>Academy - Kyaani</span></div>
+                <div class="logo logo-right">
+                    <img src="assets/images/logo.png" alt="Go Getter Academy Logo" class="logo-img">
+                </div>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul id="navMenu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="academy.html">Academy</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>Shaping Future Leaders</h1>
+            <p>At The Go Getter Academy - Kyaani, we provide quality education that nurtures creativity, critical thinking, and character development in a supportive environment.</p>
+            <div class="hero-btns">
+                <a href="academy.html" class="btn">Explore Programs</a>
+                <a href="contact.html" class="btn btn-accent">Enroll Now</a>
+            </div>
+            <p class="motto">Education is the passport to the future, for tomorrow belongs to those who prepare for it today. <span>- Malcolm X</span></p>
+        </div>
+    </section>
+
+    <!-- ===== WELCOME SECTION ===== -->
+    <section class="welcome" id="welcome">
+        <div class="container">
+            <div class="section-title">
+                <h2>Welcome to Our Academy</h2>
+                <p>Discover a world of learning where every child's potential is unlocked and nurtured</p>
+            </div>
+            <div class="welcome-content">
+                <div class="welcome-text">
+                    <p>Founded with a vision to revolutionize education, The Go Getter Academy - Kyaani is committed to providing a holistic learning experience that goes beyond textbooks. Our innovative approach combines academic excellence with character building to prepare students for the challenges of tomorrow.</p>
+                    <p>We believe every child is unique, and our tailored educational programs are designed to help each student discover and maximize their potential in a supportive and stimulating environment.</p>
+                    
+                    <div class="mission-highlights">
+                        <div class="highlight-card">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Academic Excellence</h3>
+                            <p>Rigorous curriculum designed to challenge and inspire young minds</p>
+                        </div>
+                        <div class="highlight-card">
+                            <i class="fas fa-heart"></i>
+                            <h3>Character Building</h3>
+                            <p>Developing values, ethics and leadership skills for life</p>
+                        </div>
+                        <div class="highlight-card">
+                            <i class="fas fa-flask"></i>
+                            <h3>STEM Focus</h3>
+                            <p>Modern labs and technology integration for future readiness</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="welcome-image">
+                    <img src="assets/images/welcome.jpeg" alt="Students learning in classroom">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROGRAMS SECTION ===== -->
+    <section class="programs">
+        <div class="container programs-container">
+            <div class="section-title">
+                <h2>Our Academic Programs</h2>
+                <p>Comprehensive educational pathways designed for different developmental stages</p>
+            </div>
+            
+            <div class="program-tabs">
+                <div class="program-tab active" data-tab="lower-primary">Lower Primary</div>
+                <div class="program-tab" data-tab="upper-primary">Upper Primary</div>
+                <div class="program-tab" data-tab="junior-secondary">Junior Secondary</div>
+                <div class="program-tab" data-tab="co-curricular">Co-curricular</div>
+            </div>
+            
+            <div class="program-content active" id="lower-primary">
+                <div class="program-grid">
+                    <div class="program-card">
+                        <h3>Play Group & Daycare</h3>
+                        <ul>
+                            <li>Age-appropriate learning activities</li>
+                            <li>Social and emotional development</li>
+                            <li>Basic cognitive skills through play</li>
+                            <li>Safe and nurturing environment</li>
+                            <li>Early literacy and numeracy foundations</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h3>PP1 & PP2</h3>
+                        <ul>
+                            <li>Foundational literacy and numeracy</li>
+                            <li>Creative expression through arts</li>
+                            <li>Basic science exploration</li>
+                            <li>Social skills development</li>
+                            <li>Introduction to technology</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h3>Grade 1-3</h3>
+                        <ul>
+                            <li>Core subject mastery</li>
+                            <li>Introduction to technology</li>
+                            <li>Character education</li>
+                            <li>Creative problem solving</li>
+                            <li>Physical education</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="program-content" id="upper-primary">
+                <div class="program-grid">
+                    <div class="program-card">
+                        <h3>Grade 4</h3>
+                        <ul>
+                            <li>Advanced literacy skills</li>
+                            <li>Mathematical reasoning</li>
+                            <li>Scientific inquiry</li>
+                            <li>Digital literacy introduction</li>
+                            <li>Creative arts exploration</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h3>Grade 5</h3>
+                        <ul>
+                            <li>Critical thinking development</li>
+                            <li>Project-based learning</li>
+                            <li>Environmental studies</li>
+                            <li>Creative writing</li>
+                            <li>Leadership opportunities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h3>Grade 6</h3>
+                        <ul>
+                            <li>Comprehensive subject mastery</li>
+                            <li>Research skills</li>
+                            <li>Leadership development</li>
+                            <li>Preparation for secondary</li>
+                            <li>Career awareness</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="program-content" id="junior-secondary">
+                <div class="program-grid">
+                    <div class="program-card">
+                        <h3>Grade 7</h3>
+                        <ul>
+                            <li>Specialized subject tracks</li>
+                            <li>Advanced STEM programs</li>
+                            <li>Visual programming courses</li>
+                            <li>Career exploration</li>
+                            <li>Research methodology</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h3>Grade 8</h3>
+                        <ul>
+                            <li>In-depth academic study</li>
+                            <li>Research projects</li>
+                            <li>Technology integration</li>
+                            <li>Community service</li>
+                            <li>Leadership training</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h3>Grade 9</h3>
+                        <ul>
+                            <li>College preparatory curriculum</li>
+                            <li>Advanced placement options</li>
+                            <li>Leadership opportunities</li>
+                            <li>Transition planning</li>
+                            <li>Career guidance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="program-content" id="co-curricular">
+                <div class="program-grid">
+                    <div class="program-card">
+                        <h3>Sports & Athletics</h3>
+                        <ul>
+                            <li>Football, basketball, athletics</li>
+                            <li>Swimming program</li>
+                            <li>Team sports development</li>
+                            <li>Annual sports day</li>
+                            <li>Inter-school competitions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h3>Arts & Music</h3>
+                        <ul>
+                            <li>Visual arts studio</li>
+                            <li>Music theory and practice</li>
+                            <li>School choir and band</li>
+                            <li>Annual art exhibition</li>
+                            <li>Drama and performance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="program-card">
+                        <h3>Clubs & Societies</h3>
+                        <ul>
+                            <li>Science and tech club</li>
+                            <li>Debate and public speaking</li>
+                            <li>Environmental club</li>
+                            <li>Cultural exchange programs</li>
+                            <li>Entrepreneurship club</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PHOTO SLIDER ===== -->
+    <section class="photo-slider">
+        <div class="slider-bg"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Academy Life</h2>
+                <p>Experience the vibrant atmosphere of our school through these glimpses of daily activities and special events</p>
+            </div>
+            
+            <div class="slider-container">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="slider-slide active">
+                        <img src="assets/images/slide1.jpg" alt="Students in classroom">
+                        <div class="slide-caption">
+                            <h3>Interactive Learning</h3>
+                            <p>Our students engage in hands-on activities that make learning fun and memorable, fostering curiosity and critical thinking</p>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <img src="assets/images/slide2.jpg" alt="Science lab">
+                        <div class="slide-caption">
+                            <h3>Modern Science Labs</h3>
+                            <p>State-of-the-art facilities for practical STEM education with cutting-edge equipment and technology</p>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <img src="assets/images/slide3.jpg" alt="Sports day">
+                        <div class="slide-caption">
+                            <h3>Sports & Fitness</h3>
+                            <p>Developing physical health, teamwork and sportsmanship through our comprehensive athletics program</p>
+                        </div>
+                    </div>
+                    <div class="slider-slide">
+                        <img src="assets/images/slide4.jpg" alt="Music class">
+                        <div class="slide-caption">
+                            <h3>Creative Arts</h3>
+                            <p>Nurturing artistic talents through music, drama and visual arts programs that inspire creativity</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slider-arrow prev" id="prevSlide">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="slider-arrow next" id="nextSlide">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            
+            <div class="slider-nav" id="sliderNav">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+                <div class="slider-dot" data-slide="3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PREVIEW TILES ===== -->
+    <section class="preview-tiles">
+        <div class="container">
+            <div class="section-title">
+                <h2>Explore Our Academy</h2>
+                <p>Discover more about what makes The Go Getter Academy special</p>
+            </div>
+            <div class="tiles-container">
+                <div class="tile">
+                    <div class="tile-image">
+                        <img src="assets/images/about-tile.jpg" alt="About Our Academy">
+                    </div>
+                    <div class="tile-content">
+                        <h3>About Us</h3>
+                        <p>Discover our mission, vision, values and what makes our educational approach unique</p>
+                        <a href="about.html" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="tile">
+                    <div class="tile-image">
+                        <img src="assets/images/academy-tile.jpg" alt="Academics">
+                    </div>
+                    <div class="tile-content">
+                        <h3>Academics</h3>
+                        <p>Explore our comprehensive programs, classes, curriculum and fee structure</p>
+                        <a href="academy.html" class="btn">View Details</a>
+                    </div>
+                </div>
+                <div class="tile">
+                    <div class="tile-image">
+                        <img src="assets/images/gallery-tile.jpg" alt="Gallery">
+                    </div>
+                    <div class="tile-content">
+                        <h3>Gallery</h3>
+                        <p>See our state-of-the-art facilities, exciting events and vibrant student life</p>
+                        <a href="gallery.html" class="btn">View Photos</a>
+                    </div>
+                </div>
+                <div class="tile">
+                    <div class="tile-image">
+                        <img src="assets/images/contact-tile.jpg" alt="Contact Us">
+                    </div>
+                    <div class="tile-content">
+                        <h3>Contact Us</h3>
+                        <p>Get in touch for inquiries, schedule a visit or learn about admissions</p>
+                        <a href="contact.html" class="btn">Contact Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CALL TO ACTION ===== -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <div class="section-title">
+                    <h2>Ready to Join Our Community?</h2>
+                </div>
+                <p>We're excited to welcome new students and families to The Go Getter Academy - Kyaani. Our admissions team is ready to guide you through the enrollment process and answer any questions you may have.</p>
+                <div class="hero-btns">
+                    <a href="contact.html" class="btn">Schedule a Visit</a>
+                    <a href="academy.html#fees" class="btn btn-accent">View Fee Structure</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <p>The Go Getter Academy - Kyaani is committed to providing quality education that prepares students for academic success and life beyond the classroom.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="academy.html">Academics</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="faqs.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Kyaani Road, Nairobi, Kenya</p>
+                    <p><i class="fas fa-phone"></i> +254 700 123456</p>
+                    <p><i class="fas fa-envelope"></i> info@gogetteracademy.edu</p>
+                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 The Go Getter Academy - Kyaani. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('show') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        const logoImgs = document.querySelectorAll('.logo-img');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                logoImgs.forEach(img => {
+                    img.style.height = '60px';
+                });
+            } else {
+                header.classList.remove('scrolled');
+                logoImgs.forEach(img => {
+                    img.style.height = '80px';
+                });
+            }
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 120,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('show')) {
+                        navMenu.classList.remove('show');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Photo Slider Functionality
+        const sliderTrack = document.getElementById('sliderTrack');
+        const slides = document.querySelectorAll('.slider-slide');
+        const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
+        
+        let currentSlide = 0;
+        const slideCount = slides.length;
+        
+        function updateSlider() {
+            sliderTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update active class for slides
+            slides.forEach((slide, index) => {
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        function goToSlide(index) {
+            currentSlide = (index + slideCount) % slideCount;
+            updateSlider();
+        }
+        
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+        
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+        
+        // Auto slide change
+        let slideInterval = setInterval(nextSlide, 6000);
+        
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 6000);
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetInterval();
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetInterval();
+        });
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const slideIndex = parseInt(this.getAttribute('data-slide'));
+                goToSlide(slideIndex);
+                resetInterval();
+            });
+        });
+        
+        // Touch events for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        sliderTrack.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+        
+        sliderTrack.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            resetInterval();
+        }, {passive: true});
+        
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextSlide();
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevSlide();
+            }
+        }
+        
+        // Program Tabs Functionality
+        const programTabs = document.querySelectorAll('.program-tab');
+        const programContents = document.querySelectorAll('.program-content');
+        
+        programTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                programTabs.forEach(t => t.classList.remove('active'));
+                programContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                this.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Create floating particles for hero section
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 2px and 6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                // Random animation duration between 10s and 20s
+                const duration = Math.random() * 10 + 10;
+                particle.style.animation = `floatParticle ${duration}s linear infinite`;
+                
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize particles
+        createParticles();
+        
+        // Scroll Animation for Elements
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.welcome-text, .welcome-image, .highlight-card, .tile');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animated');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+        
+        // Initialize animations on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+        });
+    </script>
+</body>
+</html>

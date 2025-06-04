@@ -1,0 +1,15 @@
+<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+  <!-- Wave 1: Go-Getter Blue -->
+  <path fill="none" stroke="#0056A1" stroke-width="60"
+        d="M0,160 
+           C180,60 360,260 540,160 
+           C720,60 900,260 1080,160 
+           C1260,60 1440,260 1620,160" />
+
+  <!-- Wave 2: Golden Yellow - slightly offset to intertwine -->
+  <path fill="none" stroke="#FDBA12" stroke-width="60"
+        d="M0,160 
+           C180,260 360,60 540,160 
+           C720,260 900,60 1080,160 
+           C1260,260 1440,60 1620,160" />
+</svg>
