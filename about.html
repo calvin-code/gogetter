@@ -32,6 +32,7 @@
             overflow-x: hidden;
             scroll-behavior: smooth;
             position: relative;
+            padding-top: 80px; /* Space for fixed header */
         }
         
         a {
@@ -447,7 +448,7 @@
             line-height: 1.8;
         }
         
-        /* ===== CORE VALUES SECTION (REDESIGNED) ===== */
+        /* ===== CORE VALUES SLIDER SECTION ===== */
         .core-values-section {
             position: relative;
             overflow: hidden;
@@ -464,24 +465,106 @@
             margin: 0 auto;
         }
         
-        .values-image {
+        .values-slider {
+            position: relative;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             height: 500px;
-            position: relative;
-            z-index: 1;
         }
         
-        .values-image img {
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1s ease;
         }
         
-        .values-image:hover img {
-            transform: scale(1.05);
+        .slide-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+        }
+        
+        .slide-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .slide-content p {
+            font-size: 1rem;
+        }
+        
+        .slider-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+            z-index: 10;
+        }
+        
+        .slider-nav-btn {
+            background: rgba(255,255,255,0.7);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .slider-nav-btn:hover {
+            background: white;
+            transform: scale(1.1);
         }
         
         .values-grid {
@@ -888,7 +971,7 @@
                 height: 400px;
             }
             
-            .values-image {
+            .values-slider {
                 height: 400px;
                 max-width: 600px;
                 margin: 0 auto;
@@ -972,6 +1055,18 @@
             .values-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* MOBILE FIX: Hide values slider completely */
+            .values-slider {
+                display: none;
+            }
+            
+            /* MOBILE FIX: Make values grid take full width */
+            .values-grid {
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1000,7 +1095,7 @@
                 font-size: 2rem;
             }
             
-            .mission-image, .location-map, .values-image {
+            .mission-image, .location-map, .values-slider {
                 height: 300px;
             }
             
@@ -1024,22 +1119,28 @@
                 margin-right: 0;
                 margin-bottom: 15px;
             }
+            
+            /* MOBILE FIX: Hide values slider completely */
+            .values-slider {
+                display: none;
+            }
         }
         
+        /* FIX FOR LOGO ON SMALL SCREENS */
         @media (max-width: 400px) {
             .logo {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row; /* Keep logo and text on same line */
+                align-items: center;
             }
             
             .logo img {
-                height: 60px;
-                margin-bottom: 5px;
+                height: 55px;
+                margin-bottom: 0; /* Remove bottom margin */
             }
             
             .logo-text {
-                font-size: 1rem;
-                white-space: normal;
+                font-size: 0.655rem; /* Adjust font size to fit */
+                white-space: normal; /* Allow wrapping if needed */
                 max-width: 180px;
             }
             
@@ -1080,9 +1181,7 @@
     <header id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <div class="logo-img-container">
-                    <img src="assets/images/logo.png" alt="Go Getter Academy Logo" id="logo-img">
-                </div>
+                <img src="assets/images/logo.png" alt="Go Getter Academy Logo" id="logo-img">
                 <div class="logo-text">The Go Getter <span>Academy - Kyaani</span></div>
             </a>
             
@@ -1137,7 +1236,7 @@
         </div>
     </section>
 
-    <!-- Core Values Section (Redesigned) -->
+    <!-- Core Values Slider Section -->
     <section class="core-values-section">
         <div class="floating-particles" id="valuesParticles"></div>
         <div class="container">
@@ -1147,8 +1246,36 @@
             </div>
             
             <div class="values-container">
-                <div class="values-image">
-                    <img src="assets/images/core-values.png" alt="Our Core Values">
+                <div class="values-slider" id="valuesSlider">
+                    <!-- Slide 1 -->
+                    <div class="slide active">
+                        <img src="assets/images/core-values.jpg" alt="Core Values">
+                        <div class="slide-content">
+                            <h3>Our Values in Action</h3>
+                            <p>Students demonstrating our core values in daily activities</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <img src="assets/images/core-values.png" alt="Core Values">
+                        <div class="slide-content">
+                            <h3>Value-Based Education</h3>
+                            <p>Creating an environment that fosters growth and integrity</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <div class="slider-nav">
+                        <button class="slider-nav-btn prev"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-nav-btn next"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    
+                    <!-- Dots -->
+                    <div class="slider-controls">
+                        <div class="slider-dot active" data-index="0"></div>
+                        <div class="slider-dot" data-index="1"></div>
+                    </div>
                 </div>
                 
                 <div class="values-grid">
@@ -1235,7 +1362,7 @@
                     </div>
                     <div class="contact-details">
                         <h3>Phone</h3>
-                        <p> +254 726 461 738 / +254 715 883 721</p>
+                        <p> +254 726 061 907 / +254 726 461 738 / +254 715 883 721</p>
                     </div>
                 </div>
                 
@@ -1245,7 +1372,7 @@
                     </div>
                     <div class="contact-details">
                         <h3>Email</h3>
-                        <p>info@gogetteracademy.edu.ke</p>
+                        <p>i</p>
                     </div>
                 </div>
                 
@@ -1300,8 +1427,8 @@
                     <h3>Contact Info</h3>
                     <div class="contact-info">
                        <p><i class="fas fa-map-marker-alt"></i> Kyaani, Mahinery. P. O. BOX 66-90136 NZEEKA</p>
-                    <p><i class="fas fa-phone"></i> +254 726 461 738 / +254 715 883 721</p>
-                    <p><i class="fas fa-envelope"></i> info@gogetteracademy.edu.ke</p>
+                    <p><i class="fas fa-phone"></i> +254 726 061 907 / +254 726 461 738 / +254 715 883 721</p>
+                    <p><i class="fas fa-envelope"></i> </p>
                     <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
                     </div>
                 </div>
