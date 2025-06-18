@@ -164,6 +164,27 @@
             animation: floatParticle linear infinite;
         }
         
+        /* ===== BUBBLE BACKGROUND ===== */
+        .bubble-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Behind everything */
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            filter: blur(2px);
+            animation: floatBubble linear infinite;
+            opacity: 0.7;
+        }
+        
         @keyframes floatParticle {
             0% {
                 transform: translateY(0) translateX(0) rotate(0deg);
@@ -177,6 +198,23 @@
             }
             100% {
                 transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes floatBubble {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(calc(100vw * var(--x-offset))) rotate(calc(360deg * var(--rotation)));
                 opacity: 0;
             }
         }
@@ -220,6 +258,7 @@
             font-weight: 700;
             color: var(--primary);
             text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            white-space: nowrap;
         }
         
         .logo-text span {
@@ -314,6 +353,9 @@
             margin-bottom: 40px;
             animation: fadeInUp 1s ease 0.3s both;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         /* ===== MISSION SECTION ===== */
@@ -403,6 +445,148 @@
             color: #555;
             font-size: 1.1rem;
             line-height: 1.8;
+        }
+        
+        /* ===== CORE VALUES SECTION (REDESIGNED) ===== */
+        .core-values-section {
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .values-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .values-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            height: 500px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .values-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1s ease;
+        }
+        
+        .values-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        
+        .value-bubble {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .value-bubble.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .value-bubble::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+        
+        .value-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: -1;
+            transition: all 0.5s ease;
+        }
+        
+        .value-bubble:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .value-bubble:hover::before {
+            transform: scale(1.5);
+            opacity: 0.15;
+        }
+        
+        .value-bubble:hover::after {
+            transform: scale(1.5);
+            opacity: 0.15;
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary), #0f2a52);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .value-bubble:hover .value-icon {
+            background: linear-gradient(135deg, var(--secondary), #e6950d);
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .value-bubble h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .value-bubble p {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
         
         /* ===== LOCATION SECTION ===== */
@@ -508,148 +692,6 @@
         .contact-details p {
             color: #666;
             font-size: 1.1rem;
-        }
-        
-        /* ===== NEWS & EVENTS SECTION ===== */
-        .news-events-section {
-            position: relative;
-            overflow: hidden;
-            padding: 100px 0;
-            background-color: white;
-        }
-        
-        .news-events-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 30px;
-        }
-        
-        .news-events-buttons {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .btn-large {
-            padding: 16px 32px;
-            font-size: 1.1rem;
-        }
-        
-        /* ===== MODALS ===== */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            overflow-y: auto;
-            padding: 20px;
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            max-width: 800px;
-            border-radius: 15px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .modal-header {
-            background: linear-gradient(135deg, var(--primary), #0f2a52);
-            color: white;
-            padding: 25px 30px;
-            position: relative;
-        }
-        
-        .modal-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 0;
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .close-modal:hover {
-            transform: rotate(90deg) scale(1.2);
-            color: var(--secondary);
-        }
-        
-        .modal-body {
-            padding: 30px;
-            max-height: 70vh;
-            overflow-y: auto;
-        }
-        
-        .modal-body img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .modal-body h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-        }
-        
-        .modal-body .event-date {
-            margin-bottom: 20px;
-        }
-        
-        .modal-body .event-meta {
-            margin-bottom: 25px;
-        }
-        
-        .modal-navigation {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 30px;
-            background-color: #f8f9fa;
-            border-top: 1px solid #e9ecef;
-        }
-        
-        .modal-nav-btn {
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            padding: 8px 16px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-        }
-        
-        .modal-nav-btn:hover {
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        .modal-nav-btn i {
-            margin: 0 8px;
-        }
-        
-        .modal-counter {
-            color: var(--text-muted);
-            font-weight: 600;
-            margin: 0 15px;
         }
         
         /* ===== FOOTER ===== */
@@ -820,47 +862,40 @@
             }
         }
         
-        @keyframes floatParticle {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
         /* ===== RESPONSIVE STYLES ===== */
         @media (max-width: 1200px) {
             .about-hero h1 {
                 font-size: 3rem;
             }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
         }
         
         @media (max-width: 992px) {
             .mission-container,
-            .location-container,
-            .news-events-container {
+            .location-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .values-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             
             .mission-image {
                 height: 400px;
             }
             
-            .location-map {
+            .values-image {
                 height: 400px;
+                max-width: 600px;
+                margin: 0 auto;
             }
             
-            .news-events-container {
-                grid-template-columns: 1fr;
+            .location-map {
+                height: 400px;
             }
         }
         
@@ -924,9 +959,7 @@
             }
             
             .mission-content h2,
-            .location-info h2,
-            .news-column h2,
-            .events-column h2 {
+            .location-info h2 {
                 font-size: 2rem;
             }
             
@@ -936,18 +969,8 @@
                 font-size: 1.2rem;
             }
             
-            .news-events-buttons {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .btn-large {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .modal-content {
-                margin: 10px auto;
+            .values-grid {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -977,22 +1000,47 @@
                 font-size: 2rem;
             }
             
-            .mission-image, .location-map {
+            .mission-image, .location-map, .values-image {
                 height: 300px;
             }
             
-            .news-column, .events-column {
-                padding: 20px;
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .value-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.8rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
             }
         }
-		 @media (max-width: 400px) {
-            .logo-text {
-                font-size: 0.55rem;
-                max-width: 150px;
+        
+        @media (max-width: 400px) {
+            .logo {
+                flex-direction: column;
+                align-items: flex-start;
             }
             
             .logo img {
                 height: 60px;
+                margin-bottom: 5px;
+            }
+            
+            .logo-text {
+                font-size: 1rem;
+                white-space: normal;
+                max-width: 180px;
             }
             
             .mobile-menu-btn {
@@ -1003,15 +1051,28 @@
                 font-size: 1.8rem;
             }
             
-            .future-leaders h1 {
+            .about-hero h1 {
                 font-size: 1.8rem;
             }
             
+            .section-title p {
+                font-size: 1rem;
+            }
             
+            .mission-item h3 {
+                font-size: 1.3rem;
+            }
+            
+            .value-bubble {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Bubble Background for Whole Page -->
+    <div class="bubble-bg" id="bubbleBackground"></div>
+    
     <!-- Floating Particles for each section -->
     <div class="floating-particles" id="heroParticles"></div>
     
@@ -1019,7 +1080,9 @@
     <header id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="Go Getter Academy Logo" id="logo-img">
+                <div class="logo-img-container">
+                    <img src="assets/images/logo.png" alt="Go Getter Academy Logo" id="logo-img">
+                </div>
                 <div class="logo-text">The Go Getter <span>Academy - Kyaani</span></div>
             </a>
             
@@ -1032,7 +1095,6 @@
                     <li><a href="about.html" class="active">About</a></li>
                     <li><a href="academy.html">Academy</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                   
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -1044,9 +1106,7 @@
         <div class="floating-particles" id="aboutHeroParticles"></div>
         <div class="container about-hero-content">
             <h1>About Our Academy</h1>
-            <p>The Go Getter Academy - Kyaani is a privately owned mixed day and boarding school situated at <b> Kyaani</b> shopping centre off <b> MSA - NAIROBI
-			 Highway</b> 7 Kms from Machinery <b>(ZION JUNCTION)</b> towards Kyulu hills.
-			 Discover our mission, vision, and values that drive our educational excellence.</p>
+            <p>The Go Getter Academy - Kyaani is a privately owned mixed day and boarding school situated at <b> Kyaani</b> shopping center off <b> MSA - NAIROBI Highway</b>, 7 Kms from Machinery <b>(ZION JUNCTION)</b> towards Kyulu hills. Discover our mission, vision, and values that drive our educational excellence.</p>
         </div>
     </section>
 
@@ -1071,8 +1131,82 @@
                 
                 <div class="mission-item">
                     <h3><i class="fas fa-quote-left"></i> Our Motto</h3>
-                    <p>"GO FOR EXCELLENCE" - This guiding principle inspires our students 
-					to pursue their highest potential while developing empathy and social awareness.</p>
+                    <p>"GO FOR EXCELLENCE" - This guiding principle inspires our students to pursue their highest potential while developing empathy and social awareness.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section (Redesigned) -->
+    <section class="core-values-section">
+        <div class="floating-particles" id="valuesParticles"></div>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Values</h2>
+                <p>The foundation of our educational philosophy at The Go Getter Academy - Kyaani</p>
+            </div>
+            
+            <div class="values-container">
+                <div class="values-image">
+                    <img src="assets/images/core-values.png" alt="Our Core Values">
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-bubble animated">
+                        <div class="value-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Punctuality</h3>
+                        <p>We value time management and respect for others' time through promptness in all activities.</p>
+                    </div>
+                    
+                    <div class="value-bubble">
+                        <div class="value-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Professionalism</h3>
+                        <p>We conduct ourselves with competence, integrity, and respect in all academic endeavors.</p>
+                    </div>
+                    
+                    <div class="value-bubble">
+                        <div class="value-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Self Drive</h3>
+                        <p>We cultivate intrinsic motivation and personal initiative to achieve excellence.</p>
+                    </div>
+                    
+                    <div class="value-bubble">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Integrity</h3>
+                        <p>We uphold strong moral principles through honesty and ethical behavior.</p>
+                    </div>
+                    
+                    <div class="value-bubble">
+                        <div class="value-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Discipline</h3>
+                        <p>We maintain focus and commitment to achieve both personal and academic goals.</p>
+                    </div>
+                    
+                    <div class="value-bubble">
+                        <div class="value-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <h3>Hard Work</h3>
+                        <p>We embrace diligence and perseverance as essential pathways to success.</p>
+                    </div>
+                    
+                    <div class="value-bubble">
+                        <div class="value-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Excellence</h3>
+                        <p>We strive for the highest standards in all academic and personal pursuits.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1111,7 +1245,7 @@
                     </div>
                     <div class="contact-details">
                         <h3>Email</h3>
-                        <p></p>
+                        <p>info@gogetteracademy.edu.ke</p>
                     </div>
                 </div>
                 
@@ -1137,24 +1271,6 @@
         </div>
     </section>
 
-    <!-- News & Events Section -->
-   <!-- <section class="news-events-section">
-        <div class="floating-particles" id="newsParticles"></div>
-        <div class="container">
-            <div class="section-title">
-                <h2>News & Events</h2>
-                <p>Stay updated with the latest happenings at our academy</p>
-            </div>
-            
-            <div class="news-events-container">
-                <div class="news-events-buttons">
-                    <button class="btn btn-large" id="showNewsModal">View News</button>
-                    <button class="btn btn-large" id="showEventsModal">View Events</button>
-                </div>
-            </div>
-        </div>
-    </section>-->
- 
     <!-- Footer -->
     <footer>
         <div class="floating-particles" id="footerParticles"></div>
@@ -1162,8 +1278,7 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>About Us</h3>
-                    <p>The Go Getter Academy - Kyaani is committed to providing quality education that prepares students 
-					for academic success and life beyond the classroom."Twaendea Ufanisi."</p>
+                    <p>The Go Getter Academy - Kyaani is committed to providing quality education that prepares students for academic success and life beyond the classroom."Twaendea Ufanisi."</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1178,7 +1293,6 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="academy.html">Academics</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
-                       
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -1187,7 +1301,7 @@
                     <div class="contact-info">
                        <p><i class="fas fa-map-marker-alt"></i> Kyaani, Mahinery. P. O. BOX 66-90136 NZEEKA</p>
                     <p><i class="fas fa-phone"></i> +254 726 461 738 / +254 715 883 721</p>
-                    <p><i class="fas fa-envelope"></i> </p>
+                    <p><i class="fas fa-envelope"></i> info@gogetteracademy.edu.ke</p>
                     <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
                     </div>
                 </div>
@@ -1197,42 +1311,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- News Modal -->
-    <div class="modal" id="newsModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="newsTitle">News Detail</h2>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div class="modal-body" id="newsContent">
-                <!-- Content will be loaded dynamically -->
-            </div>
-            <div class="modal-navigation">
-                <button class="modal-nav-btn" id="prevNews"><i class="fas fa-arrow-left"></i> Previous</button>
-                <span class="modal-counter" id="newsCounter">1/3</span>
-                <button class="modal-nav-btn" id="nextNews">Next <i class="fas fa-arrow-right"></i></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Event Modal -->
-    <div class="modal" id="eventModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="eventTitle">Event Detail</h2>
-                <span class="close-modal">&times;</span>
-            </div>
-            <div class="modal-body" id="eventContent">
-                <!-- Content will be loaded dynamically -->
-            </div>
-            <div class="modal-navigation">
-                <button class="modal-nav-btn" id="prevEvent"><i class="fas fa-arrow-left"></i> Previous</button>
-                <span class="modal-counter" id="eventCounter">1/3</span>
-                <button class="modal-nav-btn" id="nextEvent">Next <i class="fas fa-arrow-right"></i></button>
-            </div>
-        </div>
-    </div>
 
     <script>
         // Mobile Menu Toggle
@@ -1310,7 +1388,7 @@
         
         // Scroll Animation for Elements
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.mission-item, .contact-item');
+            const elements = document.querySelectorAll('.mission-item, .contact-item, .value-bubble');
             
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
@@ -1364,202 +1442,45 @@
             }
         }
         
-        // News and Events Data
-        const newsData = [
-            {
-                title: "Students Win National Drama Festivals",
-                date: "15 OCT 2023",
-                content: `
-                    <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?q=80&w=2070" alt="STEM Fair">
-                    <p>Our Grade 6 team has achieved a remarkable victory at the National STEM Fair with their innovative solar-powered irrigation system project. The students spent six months developing this eco-friendly solution to help farmers in arid regions.</p>
-                    <p>The project impressed judges with its practical application and innovative approach to solving real-world problems. The students demonstrated how their system could reduce water usage by 40% while maintaining crop yields.</p>
-                    <p>This win marks the third consecutive year our students have placed in the top three at this prestigious competition. We are incredibly proud of their achievement and dedication to scientific innovation.</p>
-                `
-            },
-            {
-                title: "New Computer Lab Inauguration",
-                date: "28 SEP 2023",
-                content: `
-                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070" alt="Computer Lab">
-                    <p>We're excited to announce the inauguration of our state-of-the-art computer lab with 40 new workstations dedicated to visual programming education. The lab features the latest technology including high-performance computers, interactive displays, and VR equipment.</p>
-                    <p>This new facility will enable students to explore advanced programming concepts, robotics, and artificial intelligence. The lab is designed to foster creativity and innovation, providing students with tools to turn their ideas into reality.</p>
-                    <p>The inauguration ceremony was attended by local government officials, parents, and industry partners who have supported our vision for technology education.</p>
-                `
-            },
-            {
-                title: "Students Launch Community Garden",
-                date: "10 SEP 2023",
-                content: `
-                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=2070" alt="Community Garden">
-                    <p>Our environmental club has transformed a vacant lot into a thriving community garden, teaching sustainability practices to students and local residents. The garden spans over 1,000 square meters and features organic vegetables, fruit trees, and a composting system.</p>
-                    <p>Students involved in the project have learned valuable skills in permaculture design, water conservation, and organic farming. The garden also serves as an outdoor classroom where science, biology, and environmental studies come to life.</p>
-                    <p>The produce from the garden will be donated to local food banks and used in our school cafeteria, promoting sustainable food systems and community engagement.</p>
-                `
+        // Create bubble background for whole page
+        function createBubbleBackground() {
+            const bubbleBg = document.getElementById('bubbleBackground');
+            if (!bubbleBg) return;
+            
+            const bubbleCount = 25;
+            
+            for (let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                // Random size between 20px and 100px
+                const size = Math.random() * 80 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                
+                // Random position
+                bubble.style.left = `${Math.random() * 100}%`;
+                
+                // Random animation duration between 15s and 30s
+                const duration = Math.random() * 15 + 15;
+                
+                // Random properties for animation
+                bubble.style.setProperty('--x-offset', Math.random() * 2 - 1); // Between -1 and 1
+                bubble.style.setProperty('--rotation', Math.random() * 2); // Between 0 and 2
+                
+                bubble.style.animation = `floatBubble ${duration}s linear infinite`;
+                
+                // Random delay
+                bubble.style.animationDelay = `${Math.random() * 10}s`;
+                
+                // Random color
+                const colors = ['rgba(26, 58, 110, 0.1)', 'rgba(245, 166, 35, 0.1)', 'rgba(231, 76, 60, 0.1)'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                bubble.style.backgroundColor = randomColor;
+                
+                bubbleBg.appendChild(bubble);
             }
-        ];
-        
-        const eventsData = [
-            {
-                title: "Annual Science & Tech Fair",
-                date: "25 NOV 2023",
-                time: "9:00 AM - 3:00 PM",
-                location: "School Grounds",
-                content: `
-                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=2070" alt="Science Fair">
-                    <p>Join us for our biggest event of the year - the Annual Science & Tech Fair! Experience student innovations in robotics, programming, and scientific discovery. This year's theme is "Sustainable Solutions for Tomorrow".</p>
-                    <p>Highlights include:</p>
-                    <ul>
-                        <li>Robotics demonstrations and competitions</li>
-                        <li>Student-led science experiments and projects</li>
-                        <li>Virtual reality experiences</li>
-                        <li>3D printing workshops</li>
-                        <li>Guest speakers from leading tech companies</li>
-                        <li>STEM career expo</li>
-                    </ul>
-                    <p>This event is open to students, parents, and the community. Come see how our students are solving real-world problems through innovation and creativity!</p>
-                `
-            },
-            {
-                title: "Cultural Diversity Day",
-                date: "10 DEC 2023",
-                time: "10:00 AM - 2:00 PM",
-                location: "Multipurpose Hall",
-                content: `
-                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070" alt="Cultural Event">
-                    <p>Celebrate Kenya's rich cultural heritage through performances, traditional foods, and cultural exhibitions at our Cultural Diversity Day. This event highlights the diversity of our student body and promotes cultural understanding.</p>
-                    <p>Activities include:</p>
-                    <ul>
-                        <li>Traditional dance performances from various Kenyan communities</li>
-                        <li>Cultural fashion show featuring traditional attire</li>
-                        <li>International food fair with dishes from around the world</li>
-                        <li>Art and craft exhibitions</li>
-                        <li>Storytelling sessions with elders from different communities</li>
-                        <li>Language learning booths</li>
-                    </ul>
-                    <p>This family-friendly event is a wonderful opportunity to experience the vibrant cultures that make our community special.</p>
-                `
-            },
-            {
-                title: "Parent-Teacher Conference",
-                date: "15 JAN 2024",
-                time: "8:00 AM - 5:00 PM",
-                location: "Classrooms",
-                content: `
-                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=2072" alt="Parent-Teacher Conference">
-                    <p>Discuss your child's progress with our dedicated teaching staff and learn about our plans for the new term. The Parent-Teacher Conference is an opportunity to:</p>
-                    <ul>
-                        <li>Review your child's academic progress and achievements</li>
-                        <li>Discuss areas for improvement and development</li>
-                        <li>Learn about our curriculum enhancements for the new term</li>
-                        <li>Understand how you can support your child's learning at home</li>
-                        <li>Meet with specialists in STEM, arts, and languages</li>
-                        <li>Tour our newly upgraded facilities</li>
-                    </ul>
-                    <p>Appointments are 20 minutes each. Please schedule your meeting in advance through our online portal or by contacting the school office.</p>
-                `
-            }
-        ];
-        
-        // Modal functionality
-        const modals = {
-            news: document.getElementById('newsModal'),
-            event: document.getElementById('eventModal')
-        };
-        
-        const openModal = (modalId) => {
-            document.body.style.overflow = 'hidden';
-            modals[modalId].style.display = 'block';
-        };
-        
-        const closeModal = (modalId) => {
-            document.body.style.overflow = '';
-            modals[modalId].style.display = 'none';
-        };
-        
-        // Set up modal closers
-        document.querySelectorAll('.close-modal').forEach(closeBtn => {
-            closeBtn.addEventListener('click', () => {
-                const modal = closeBtn.closest('.modal');
-                modal.style.display = 'none';
-                document.body.style.overflow = '';
-            });
-        });
-        
-        // Close modal when clicking outside content
-        window.addEventListener('click', (e) => {
-            if (e.target.classList.contains('modal')) {
-                e.target.style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // News modal navigation
-        let currentNewsIndex = 0;
-        
-        const showNews = (index) => {
-            if (index < 0) index = newsData.length - 1;
-            if (index >= newsData.length) index = 0;
-            
-            currentNewsIndex = index;
-            const news = newsData[index];
-            
-            document.getElementById('newsTitle').textContent = news.title;
-            document.getElementById('newsContent').innerHTML = `
-                <div class="news-date">${news.date}</div>
-                ${news.content}
-            `;
-            document.getElementById('newsCounter').textContent = `${index + 1}/${newsData.length}`;
-        };
-        
-        document.getElementById('showNewsModal').addEventListener('click', () => {
-            showNews(0);
-            openModal('news');
-        });
-        
-        document.getElementById('prevNews').addEventListener('click', () => {
-            showNews(currentNewsIndex - 1);
-        });
-        
-        document.getElementById('nextNews').addEventListener('click', () => {
-            showNews(currentNewsIndex + 1);
-        });
-        
-        // Events modal navigation
-        let currentEventIndex = 0;
-        
-        const showEvent = (index) => {
-            if (index < 0) index = eventsData.length - 1;
-            if (index >= eventsData.length) index = 0;
-            
-            currentEventIndex = index;
-            const event = eventsData[index];
-            
-            document.getElementById('eventTitle').textContent = event.title;
-            document.getElementById('eventContent').innerHTML = `
-                <div class="event-date">
-                    <i class="far fa-calendar-alt"></i> ${event.date}
-                </div>
-                <div class="event-meta">
-                    <div><i class="far fa-clock"></i> ${event.time}</div>
-                    <div><i class="fas fa-map-marker-alt"></i> ${event.location}</div>
-                </div>
-                ${event.content}
-            `;
-            document.getElementById('eventCounter').textContent = `${index + 1}/${eventsData.length}`;
-        };
-        
-        document.getElementById('showEventsModal').addEventListener('click', () => {
-            showEvent(0);
-            openModal('event');
-        });
-        
-        document.getElementById('prevEvent').addEventListener('click', () => {
-            showEvent(currentEventIndex - 1);
-        });
-        
-        document.getElementById('nextEvent').addEventListener('click', () => {
-            showEvent(currentEventIndex + 1);
-        });
+        }
         
         // Initialize animations and particles on page load
         document.addEventListener('DOMContentLoaded', () => {
@@ -1567,9 +1488,15 @@
             createParticles('heroParticles');
             createParticles('aboutHeroParticles');
             createParticles('missionParticles');
+            createParticles('valuesParticles');
             createParticles('locationParticles');
-            createParticles('newsParticles');
             createParticles('footerParticles');
+            
+            // Create bubble background
+            createBubbleBackground();
+            
+            // Initialize animations
+            animateOnScroll();
         });
     </script>
 </body>
