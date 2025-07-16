@@ -3,7 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | The Go Getter Academy - Kyaani</title>
+    <title>About Us | The Go Getter Academy - Kyaani | Excellence in Education</title>
+    <meta name="description" content="Learn about The Go Getter Academy - Kyaani, our mission, vision, core values, and location. Discover our commitment to quality education in Kenya.">
+    <meta name="keywords" content="Go Getter Academy, Kyaani school, Kenya education, boarding school, day school, Nairobi highway school, quality education, academic excellence, about us">
+    <meta name="author" content="The Go Getter Academy">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://thegogetteracademy-kyaani.com/about.html">
+    
+    <!-- SEO Enhancements -->
+    <meta name="copyright" content="Copyright 2025 The Go Getter Academy">
+    <meta name="theme-color" content="#1a3a6e">
+    <meta name="geo.region" content="KE" />
+    <meta name="geo.placename" content="Makueni" />
+    <meta name="geo.position" content="-1.516667;37.266667" />
+    <meta name="ICBM" content="-1.516667, 37.266667" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="About Us | The Go Getter Academy - Kyaani | Excellence in Education">
+    <meta property="og:description" content="Learn about our mission, vision, core values, and location at The Go Getter Academy - Kyaani.">
+    <meta property="og:image" content="https://thegogetteracademy-kyaani.com/assets/images/about-og.jpg">
+    <meta property="og:url" content="https://thegogetteracademy-kyaani.com/about.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_GB">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@GoGetterAcademy">
+    <meta name="twitter:creator" content="@GoGetterAcademy">
+    <meta name="twitter:title" content="About Us | The Go Getter Academy - Kyaani">
+    <meta name="twitter:description" content="Discover our mission, vision, and values that drive our educational excellence.">
+    <meta name="twitter:image" content="https://thegogetteracademy-kyaani.com/assets/images/about-twitter.jpg">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "The Go Getter Academy - Kyaani",
+      "url": "https://thegogetteracademy-kyaani.com/about.html",
+      "logo": "https://thegogetteracademy-kyaani.com/assets/images/logo.png",
+      "description": "Privately owned mixed day and boarding school offering quality education from early childhood through junior secondary school.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kyaani shopping center off MSA - NAIROBI Highway",
+        "addressLocality": "Machinery",
+        "addressRegion": "Makueni",
+        "postalCode": "90136",
+        "addressCountry": "KE"
+      },
+      "telephone": "+254726061907",
+      "email": "info@thegogetteracademy-kyaani.com",
+      "foundingDate": "2010",
+      "sameAs": [
+        "https://www.facebook.com/GoGetterAcademy",
+        "https://twitter.com/GoGetterAcademy",
+        "https://www.instagram.com/GoGetterAcademy"
+      ]
+    }
+    </script>
+      <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <meta name="theme-color" content="#1a3a6e">
+	
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
@@ -777,6 +843,39 @@
             font-size: 1.1rem;
         }
         
+        /* ===== BACK TO TOP BUTTON ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            text-decoration: none;
+            z-index: 100;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        }
+        
         /* ===== FOOTER ===== */
         footer {
             background-color: var(--primary);
@@ -1352,7 +1451,7 @@
                     </div>
                     <div class="contact-details">
                         <h3>Address</h3>
-                        <p>Kyaani, Mahinery. P. O. BOX 66-90136 NZEEKA</p>
+                        <p>Kyaani, Machinery. P. O. BOX 66-90136 NZEEKA</p>
                     </div>
                 </div>
                 
@@ -1372,7 +1471,7 @@
                     </div>
                     <div class="contact-details">
                         <h3>Email</h3>
-                        <p>i</p>
+                        <p>info@thegogetteracademy-kyaani.com</p>
                     </div>
                 </div>
                 
@@ -1426,9 +1525,9 @@
                 <div class="footer-column">
                     <h3>Contact Info</h3>
                     <div class="contact-info">
-                       <p><i class="fas fa-map-marker-alt"></i> Kyaani, Mahinery. P. O. BOX 66-90136 NZEEKA</p>
+                       <p><i class="fas fa-map-marker-alt"></i> Kyaani, Machinery. P. O. BOX 66-90136 NZEEKA</p>
                     <p><i class="fas fa-phone"></i> +254 726 061 907 / +254 726 461 738 / +254 715 883 721</p>
-                    <p><i class="fas fa-envelope"></i> </p>
+                    <p><i class="fas fa-envelope"></i> info@thegogetteracademy-kyaani.com</p>
                     <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
                     </div>
                 </div>
@@ -1438,6 +1537,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <script>
         // Mobile Menu Toggle
@@ -1607,6 +1711,29 @@
                 
                 bubbleBg.appendChild(bubble);
             }
+        }
+        
+        // Back to top functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        if (backToTopBtn) {
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            // Scroll to top when clicked
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
         }
         
         // Initialize animations and particles on page load

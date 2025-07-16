@@ -3,7 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Go Getter Academy - Kyaani | Academy</title>
+    <title>The Go Getter Academy - Kyaani | Academic Excellence</title>
+    <meta name="description" content="Discover our comprehensive academic programs at The Go Getter Academy - Kyaani. From early childhood to junior secondary, we provide quality education in Kenya.">
+    <meta name="keywords" content="Go Getter Academy, Kyaani school, Kenya education, boarding school, day school, Nairobi highway school, quality education, academic excellence">
+    <meta name="author" content="The Go Getter Academy">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://thegogetteracademy-kyaani.com/academy">
+    
+    <!-- SEO Enhancements -->
+    <meta name="copyright" content="Copyright 2025 The Go Getter Academy">
+    <meta name="theme-color" content="#1a3a6e">
+    <meta name="geo.region" content="KE" />
+    <meta name="geo.placename" content="Makueni" />
+    <meta name="geo.position" content="-1.516667;37.266667" />
+    <meta name="ICBM" content="-1.516667, 37.266667" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="The Go Getter Academy - Kyaani | Academic Excellence">
+    <meta property="og:description" content="Privately owned mixed day and boarding school offering quality education from early childhood through junior secondary school.">
+    <meta property="og:image" content="https://thegogetteracademy-kyaani.com/assets/images/academics.jpg">
+    <meta property="og:url" content="https://thegogetteracademy-kyaani.com/academy">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_GB">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@GoGetterAcademy">
+    <meta name="twitter:creator" content="@GoGetterAcademy">
+    <meta name="twitter:title" content="The Go Getter Academy - Kyaani | Academic Excellence">
+    <meta name="twitter:description" content="Privately owned mixed day and boarding school offering quality education from early childhood through junior secondary school.">
+    <meta name="twitter:image" content="https://thegogetteracademy-kyaani.com/assets/images/academics.jpg">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "The Go Getter Academy - Kyaani",
+      "url": "https://thegogetteracademy-kyaani.com/academy",
+      "logo": "https://thegogetteracademy-kyaani.com/assets/images/logo.png",
+      "description": "Comprehensive academic programs from early childhood through junior secondary school",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kyaani shopping center off MSA - NAIROBI Highway",
+        "addressLocality": "Machinery",
+        "addressRegion": "Makueni",
+        "postalCode": "90136",
+        "addressCountry": "KE"
+      },
+      "telephone": "+254726061907",
+      "email": "info@thegogetteracademy-kyaani.com",
+      "foundingDate": "2010",
+      "sameAs": [
+        "https://www.facebook.com/GoGetterAcademy",
+        "https://twitter.com/GoGetterAcademy",
+        "https://www.instagram.com/GoGetterAcademy"
+      ]
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
@@ -107,7 +173,6 @@
         section {
             padding: 100px 0;
             position: relative;
-            overflow: hidden;
         }
         
         .section-title {
@@ -179,7 +244,7 @@
         }
         
         .logo-text {
-            font-size: 2.0rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
             text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
@@ -1103,6 +1168,43 @@
             }
         }
         
+        /* MODERN ARROW DESIGN */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .slider-arrow:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(245, 166, 35, 0.4);
+        }
+        
+        .slider-arrow.prev {
+            left: 15px;
+        }
+        
+        .slider-arrow.next {
+            right: 15px;
+        }
+        
         /* Modal Styles */
         .modal {
             display: none;
@@ -1415,6 +1517,39 @@
             font-size: 0.95rem;
         }
         
+        /* ===== BACK TO TOP BUTTON ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            text-decoration: none;
+            z-index: 100;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+        }
+        
         /* ===== RESPONSIVE STYLES ===== */
         @media (max-width: 1200px) {
             .academy-content,
@@ -1629,6 +1764,163 @@
                 height: 200px;
             }
         }
+		/* Addition to existing media queries */
+        @media (max-width: 768px) {
+            /* Center all text content */
+            .academy-text,
+            .stem-text,
+            .section-title,
+            .footer-column,
+            .class-details,
+            .class-header,
+            .activity-info {
+                text-align: center;
+            }
+
+            /* Center section titles */
+            .section-title h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            /* Center program cards */
+            .programs-grid {
+                justify-items: center;
+            }
+
+            /* Center benefit cards */
+            .benefits-grid {
+                justify-items: center;
+            }
+
+            /* Center activity cards */
+            .activity-grid {
+                justify-items: center;
+            }
+
+            /* Center class content */
+            .class-header {
+                justify-content: center;
+            }
+
+            /* Center footer content */
+            .footer-column h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            /* Center modal content */
+            .modal-content {
+                text-align: center;
+            }
+
+            .class-header {
+                flex-direction: column;
+            }
+
+            .class-icon {
+                margin: 0 auto 15px;
+            }
+
+            /* Center logo and navigation */
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                padding: 15px 0;
+            }
+
+            nav ul {
+                align-items: center;
+            }
+
+            .logo {
+                justify-content: center;
+            }
+
+            /* Center CTA buttons */
+            .hero-btns {
+                justify-content: center;
+            }
+
+            /* Center floating elements */
+            .academy-intro::before,
+            .academy-intro::after,
+            .why-us::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        @media (max-width: 576px) {
+            /* Adjust section padding */
+            section {
+                padding: 60px 0;
+            }
+
+            /* Center all text */
+            .academy-text p,
+            .stem-text p,
+            .stem-features li,
+            .class-features li {
+                text-align: center;
+            }
+
+            /* Center list markers */
+            .stem-features li::before,
+            .class-features li::before {
+                left: 10px;
+            }
+
+            /* Center tabs */
+            .activity-tabs {
+                justify-content: center;
+            }
+
+            /* Center footer columns */
+            .footer-content {
+                justify-items: center;
+                text-align: center;
+            }
+
+            .contact-info p {
+                text-align: center;
+                padding-left: 0;
+            }
+
+            .contact-info i {
+                position: relative;
+                margin-right: 5px;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* Additional centering for small screens */
+        @media (max-width: 400px) {
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            .program-card,
+            .benefit-card,
+            .activity-card {
+                max-width: 100%;
+            }
+
+            .mobile-menu-btn {
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1652,7 +1944,6 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="academy.html" class="active">Academy</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                   
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -1980,15 +2271,14 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="academy.html">Academics</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
-                      
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Info</h3>
-                     <p><i class="fas fa-map-marker-alt"></i> Kyaani, Mahinery. P. O. BOX 66-90136 NZEEKA</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Kyaani, Machinery. P. O. BOX 66-90136 NZEEKA</p>
                     <p><i class="fas fa-phone"></i> +254 726 061 907 / +254 726 461 738 / +254 715 883 721</p>
-                    <p><i class="fas fa-envelope"></i> </p>
+                    <p><i class="fas fa-envelope"></i> info@thegogetteracademy-kyaani.com</p>
                     <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
                 </div>
             </div>
@@ -2031,12 +2321,12 @@
                                 </div>
                             </div>
                             <div class="slideshow-nav">
-                                <button class="slideshow-btn slideshow-prev">
+                                <div class="slider-arrow prev slideshow-prev">
                                     <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="slideshow-btn slideshow-next">
+                                </div>
+                                <div class="slider-arrow next slideshow-next">
                                     <i class="fas fa-chevron-right"></i>
-                                </button>
+                                </div>
                             </div>
                             <div class="slideshow-dots">
                                 <div class="slideshow-dot active" data-slide="0"></div>
@@ -2079,12 +2369,12 @@
                                 </div>
                             </div>
                             <div class="slideshow-nav">
-                                <button class="slideshow-btn slideshow-prev">
+                                <div class="slider-arrow prev slideshow-prev">
                                     <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="slideshow-btn slideshow-next">
+                                </div>
+                                <div class="slider-arrow next slideshow-next">
                                     <i class="fas fa-chevron-right"></i>
-                                </button>
+                                </div>
                             </div>
                             <div class="slideshow-dots">
                                 <div class="slideshow-dot active" data-slide="0"></div>
@@ -2127,12 +2417,12 @@
                                 </div>
                             </div>
                             <div class="slideshow-nav">
-                                <button class="slideshow-btn slideshow-prev">
+                                <div class="slider-arrow prev slideshow-prev">
                                     <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="slideshow-btn slideshow-next">
+                                </div>
+                                <div class="slider-arrow next slideshow-next">
                                     <i class="fas fa-chevron-right"></i>
-                                </button>
+                                </div>
                             </div>
                             <div class="slideshow-dots">
                                 <div class="slideshow-dot active" data-slide="0"></div>
@@ -2175,12 +2465,12 @@
                                 </div>
                             </div>
                             <div class="slideshow-nav">
-                                <button class="slideshow-btn slideshow-prev">
+                                <div class="slider-arrow prev slideshow-prev">
                                     <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="slideshow-btn slideshow-next">
+                                </div>
+                                <div class="slider-arrow next slideshow-next">
                                     <i class="fas fa-chevron-right"></i>
-                                </button>
+                                </div>
                             </div>
                             <div class="slideshow-dots">
                                 <div class="slideshow-dot active" data-slide="0"></div>
@@ -2223,12 +2513,12 @@
                                 </div>
                             </div>
                             <div class="slideshow-nav">
-                                <button class="slideshow-btn slideshow-prev">
+                                <div class="slider-arrow prev slideshow-prev">
                                     <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="slideshow-btn slideshow-next">
+                                </div>
+                                <div class="slider-arrow next slideshow-next">
                                     <i class="fas fa-chevron-right"></i>
-                                </button>
+                                </div>
                             </div>
                             <div class="slideshow-dots">
                                 <div class="slideshow-dot active" data-slide="0"></div>
@@ -2284,12 +2574,12 @@
                                 </div>
                             </div>
                             <div class="slideshow-nav">
-                                <button class="slideshow-btn slideshow-prev">
+                                <div class="slider-arrow prev slideshow-prev">
                                     <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="slideshow-btn slideshow-next">
+                                </div>
+                                <div class="slider-arrow next slideshow-next">
                                     <i class="fas fa-chevron-right"></i>
-                                </button>
+                                </div>
                             </div>
                             <div class="slideshow-dots">
                                 <div class="slideshow-dot active" data-slide="0"></div>
@@ -2332,12 +2622,12 @@
                                 </div>
                             </div>
                             <div class="slideshow-nav">
-                                <button class="slideshow-btn slideshow-prev">
+                                <div class="slider-arrow prev slideshow-prev">
                                     <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="slideshow-btn slideshow-next">
+                                </div>
+                                <div class="slider-arrow next slideshow-next">
                                     <i class="fas fa-chevron-right"></i>
-                                </button>
+                                </div>
                             </div>
                             <div class="slideshow-dots">
                                 <div class="slideshow-dot active" data-slide="0"></div>
@@ -2380,12 +2670,12 @@
                                 </div>
                             </div>
                             <div class="slideshow-nav">
-                                <button class="slideshow-btn slideshow-prev">
+                                <div class="slider-arrow prev slideshow-prev">
                                     <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="slideshow-btn slideshow-next">
+                                </div>
+                                <div class="slider-arrow next slideshow-next">
                                     <i class="fas fa-chevron-right"></i>
-                                </button>
+                                </div>
                             </div>
                             <div class="slideshow-dots">
                                 <div class="slideshow-dot active" data-slide="0"></div>
@@ -2441,12 +2731,12 @@
                                 </div>
                             </div>
                             <div class="slideshow-nav">
-                                <button class="slideshow-btn slideshow-prev">
+                                <div class="slider-arrow prev slideshow-prev">
                                     <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="slideshow-btn slideshow-next">
+                                </div>
+                                <div class="slider-arrow next slideshow-next">
                                     <i class="fas fa-chevron-right"></i>
-                                </button>
+                                </div>
                             </div>
                             <div class="slideshow-dots">
                                 <div class="slideshow-dot active" data-slide="0"></div>
@@ -2489,12 +2779,12 @@
                                 </div>
                             </div>
                             <div class="slideshow-nav">
-                                <button class="slideshow-btn slideshow-prev">
+                                <div class="slider-arrow prev slideshow-prev">
                                     <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="slideshow-btn slideshow-next">
+                                </div>
+                                <div class="slider-arrow next slideshow-next">
                                     <i class="fas fa-chevron-right"></i>
-                                </button>
+                                </div>
                             </div>
                             <div class="slideshow-dots">
                                 <div class="slideshow-dot active" data-slide="0"></div>
@@ -2537,12 +2827,12 @@
                                 </div>
                             </div>
                             <div class="slideshow-nav">
-                                <button class="slideshow-btn slideshow-prev">
+                                <div class="slider-arrow prev slideshow-prev">
                                     <i class="fas fa-chevron-left"></i>
-                                </button>
-                                <button class="slideshow-btn slideshow-next">
+                                </div>
+                                <div class="slider-arrow next slideshow-next">
                                     <i class="fas fa-chevron-right"></i>
-                                </button>
+                                </div>
                             </div>
                             <div class="slideshow-dots">
                                 <div class="slideshow-dot active" data-slide="0"></div>
@@ -2579,12 +2869,12 @@
                         <!-- Slides will be dynamically inserted here -->
                     </div>
                     <div class="gallery-nav">
-                        <button class="gallery-btn gallery-prev">
+                        <div class="slider-arrow prev gallery-prev">
                             <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button class="gallery-btn gallery-next">
+                        </div>
+                        <div class="slider-arrow next gallery-next">
                             <i class="fas fa-chevron-right"></i>
-                        </button>
+                        </div>
                     </div>
                     <div class="gallery-dots" id="galleryDots">
                         <!-- Dots will be dynamically inserted here -->
@@ -2597,6 +2887,11 @@
             </div>
         </div>
     </div>
+
+    <!-- ===== BACK TO TOP BUTTON ===== -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <script>
         // Mobile Menu Toggle
@@ -3044,6 +3339,29 @@
             });
         }
         
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        if (backToTopBtn) {
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 500) {
+                    backToTopBtn.classList.add('visible');
+                } else {
+                    backToTopBtn.classList.remove('visible');
+                }
+            });
+            
+            // Scroll to top when clicked
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
         // Initialize animations and functionality on page load
         document.addEventListener('DOMContentLoaded', () => {
             // Create particles for each section

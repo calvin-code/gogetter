@@ -3,7 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | The Go Getter Academy - Kyaani</title>
+    <title>Contact The Go Getter Academy - Kyaani | Reach Out Today</title>
+    <meta name="description" content="Contact The Go Getter Academy in Kyaani, Kenya. Reach us via phone, email, or visit our campus. We're here to answer all your education-related questions.">
+    <meta name="keywords" content="Go Getter Academy, contact, Kyaani school, Kenya education, school admission, campus tour">
+    <meta name="author" content="The Go Getter Academy">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.gogetteracademy.edu/contact">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Contact The Go Getter Academy - Kyaani | Reach Out Today">
+    <meta property="og:description" content="Get in touch with The Go Getter Academy in Kyaani, Kenya. Schedule a tour, ask questions, or request information about our educational programs.">
+    <meta property="og:image" content="https://www.gogetteracademy.edu/assets/images/contact-og.jpg">
+    <meta property="og:url" content="https://www.gogetteracademy.edu/contact">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@GoGetterAcademy">
+    <meta name="twitter:title" content="Contact The Go Getter Academy - Kyaani">
+    <meta name="twitter:description" content="Reach out to Kenya's premier educational institution for quality education from early childhood through junior secondary.">
+    <meta name="twitter:image" content="https://www.gogetteracademy.edu/assets/images/contact-twitter.jpg">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "The Go Getter Academy - Kyaani",
+      "url": "https://www.gogetteracademy.edu",
+      "logo": "https://www.gogetteracademy.edu/assets/images/logo.png",
+      "description": "Privately owned mixed day and boarding school offering quality education from early childhood through junior secondary school.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kyaani shopping center off MSA - NAIROBI Highway",
+        "addressLocality": "Machinery",
+        "addressRegion": "Makueni",
+        "postalCode": "90136",
+        "addressCountry": "KE"
+      },
+      "telephone": "+254726061907",
+      "email": "info@thegogetteracademy-kyaani.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+254-726-061-907",
+        "contactType": "Customer service",
+        "availableLanguage": "English"
+      },
+      "sameAs": [
+        "https://www.facebook.com/GoGetterAcademy",
+        "https://twitter.com/GoGetterAcademy",
+        "https://www.instagram.com/GoGetterAcademy"
+      ]
+    }
+    </script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     <style>
@@ -117,6 +171,7 @@
             position: relative;
         }
         
+        .section-title h1,
         .section-title h2 {
             font-size: 2.8rem;
             color: var(--primary);
@@ -143,42 +198,6 @@
             color: var(--text-muted);
             max-width: 700px;
             margin: 15px auto 0;
-        }
-        
-        /* ===== FLOATING PARTICLES ===== */
-        .floating-particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: floatParticle linear infinite;
-        }
-        
-        @keyframes floatParticle {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) translateX(100px) rotate(360deg);
-                opacity: 0;
-            }
         }
         
         /* ===== HEADER ===== */
@@ -289,7 +308,7 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(26, 58, 110, 0.9), rgba(245, 166, 35, 0.8)), 
-                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+                        url('assets/images/contact-hero.jpg') center/cover no-repeat;
             color: white;
         }
         
@@ -348,7 +367,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1557683316-973673baf926?q=80&w=2029') center/cover no-repeat;
+            background: url('assets/images/contact-bg.jpg') center/cover no-repeat;
             opacity: 0.1;
             z-index: -1;
         }
@@ -464,7 +483,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070') center/cover no-repeat;
+            background: url('assets/images/form-bg.jpg') center/cover no-repeat;
             opacity: 0.05;
             z-index: 0;
         }
@@ -644,7 +663,7 @@
             color: white;
             padding: 80px 0 30px;
             position: relative;
-            text-align: center; /* Center footer content */
+            text-align: center;
         }
         
         footer::before {
@@ -662,11 +681,11 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 50px;
             margin-bottom: 50px;
-            justify-items: center; /* Center grid items */
+            justify-items: center;
         }
         
         .footer-column {
-            text-align: center; /* Center all text */
+            text-align: center;
         }
         
         .footer-column h3 {
@@ -698,15 +717,11 @@
         
         .footer-links {
             list-style: none;
-            padding-left: 0; /* Remove default padding */
+            padding-left: 0;
         }
         
         .footer-links li {
             margin-bottom: 15px;
-        }
-        
-        .footer-links li::before {
-            display: none; /* Remove bullet icon */
         }
         
         .footer-links a {
@@ -724,7 +739,7 @@
         }
         
         .contact-info i {
-            display: block; /* Make icons appear above text */
+            display: block;
             margin-bottom: 10px;
             font-size: 1.5rem;
         }
@@ -733,7 +748,7 @@
             display: flex;
             gap: 15px;
             margin-top: 25px;
-            justify-content: center; /* Center social icons */
+            justify-content: center;
         }
         
         .social-links a {
@@ -763,49 +778,39 @@
             color: rgba(255, 255, 255, 0.6);
         }
         
-        /* ===== SCROLL TO TOP BUTTON ===== */
-        .scroll-to-top {
+        /* ===== BACK TO TOP BUTTON ===== */
+        .back-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
             width: 50px;
             height: 50px;
-            background-color: var(--secondary);
-            color: var(--primary);
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            z-index: 999;
+            font-size: 1.3rem;
+            text-decoration: none;
+            z-index: 100;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             opacity: 0;
             transform: translateY(20px);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 4px 15px rgba(245, 166, 35, 0.4);
-            border: none;
         }
         
-        .scroll-to-top.visible {
+        .back-to-top.visible {
             opacity: 1;
             transform: translateY(0);
         }
         
-        .scroll-to-top:hover {
-            background-color: var(--primary);
-            color: white;
+        .back-to-top:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(26, 58, 110, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
         }
-        
-        .scroll-to-top i {
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .scroll-to-top:hover i {
-            transform: translateY(-3px);
-        }
-        
+
         /* ===== ANIMATIONS ===== */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -939,13 +944,6 @@
             .faq-question {
                 font-size: 1.1rem;
             }
-            
-            .scroll-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
         }
         
         @media (max-width: 576px) {
@@ -981,26 +979,16 @@
             .contact-form-container {
                 padding: 30px 20px;
             }
-            
-            .scroll-to-top {
-                bottom: 15px;
-                right: 15px;
-                width: 40px;
-                height: 40px;
-            }
-            
-            .scroll-to-top i {
-                font-size: 1.2rem;
-            }
         }
-		 @media (max-width: 400px) {
+        
+        @media (max-width: 400px) {
             .logo-text {
-                font-size: 0.555rem;
+                font-size: 0.55rem;
                 max-width: 150px;
             }
             
             .logo img {
-                height: 55px;
+                height: 58px;
             }
             
             .mobile-menu-btn {
@@ -1011,21 +999,13 @@
                 font-size: 1.8rem;
             }
             
-            .future-leaders h1 {
+            .contact-hero h1 {
                 font-size: 1.8rem;
-            }
-            
-            .program-tab {
-                padding: 5px 5px;
-                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Particles for each section -->
-    <div class="floating-particles" id="heroParticles"></div>
-    
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
@@ -1035,7 +1015,7 @@
             </a>
             
             <nav>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul id="navMenu">
@@ -1043,7 +1023,6 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="academy.html">Academy</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                 
                     <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
             </nav>
@@ -1051,54 +1030,60 @@
     </header>
 
     <!-- Contact Hero Section -->
-    <section class="contact-hero">
-        <div class="floating-particles" id="contactHeroParticles"></div>
+    <section class="contact-hero" aria-label="Contact us introduction">
         <div class="container contact-hero-content">
             <h1>Get In Touch With Us</h1>
-            <p>We're here to answer your questions and provide the information you need</p>
+            <p>We're here to answer your questions and provide the information you need about our educational programs in Kyaani</p>
         </div>
     </section>
 
     <!-- Contact Content Section -->
     <section class="contact-content">
-        <div class="floating-particles" id="contactParticles"></div>
         <div class="container contact-container">
-            <div class="contact-info">
+            <div class="contact-info" itemscope itemtype="https://schema.org/EducationalOrganization">
                 <h2>Contact Information</h2>
                 
                 <div class="contact-item animated">
                     <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
+                        <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                     </div>
                     <div class="contact-details">
                         <h3>Address</h3>
-                        <p>Kyaani, Mahinery. P. O. BOX 66-90136 NZEEKA</p>
+                        <p itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+                            <span itemprop="streetAddress">Kyaani, Machinery</span>. 
+                            <span itemprop="postOfficeBoxNumber">P. O. BOX 66-90136</span> 
+                            <span itemprop="addressLocality">NZEEKA</span>
+                        </p>
                     </div>
                 </div>
                 
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
+                        <i class="fas fa-phone" aria-hidden="true"></i>
                     </div>
                     <div class="contact-details">
                         <h3>Phone</h3>
-                        <p>+254 726 061 907 / +254 726 461 738 / +254 715 883 721</p>
+                        <p>
+                            <a href="tel:+254726061907" itemprop="telephone">+254 726 061 907</a> / 
+                            <a href="tel:+254726461738">+254 726 461 738</a> / 
+                            <a href="tel:+254715883721">+254 715 883 721</a>
+                        </p>
                     </div>
                 </div>
                 
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
                     </div>
                     <div class="contact-details">
                         <h3>Email</h3>
-                        <p>info@gogetteracademy.edu</p>
+                        <p><a href="mailto:info@thegogetteracademy-kyaani.com" itemprop="email">info@thegogetteracademy-kyaani.com</a></p>
                     </div>
                 </div>
                 
                 <div class="contact-item">
                     <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
+                        <i class="fas fa-clock" aria-hidden="true"></i>
                     </div>
                     <div class="contact-details">
                         <h3>Office Hours</h3>
@@ -1110,17 +1095,17 @@
                 <div class="social-contact">
                     <h3>Connect With Us</h3>
                     <div class="social-links-contact">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/GoGetterAcademy" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/GoGetterAcademy" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/GoGetterAcademy" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/company/GoGetterAcademy" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
             
             <div class="contact-form-container">
                 <h2>Send Us a Message</h2>
-                <form id="contactForm">
+                <form id="contactForm" method="post" action="/submit-contact">
                     <div class="form-row">
                         <div class="form-group">
                             <label for="name">Full Name</label>
@@ -1156,7 +1141,6 @@
 
     <!-- Location Map Section -->
     <section class="location-section">
-        <div class="floating-particles" id="locationParticles"></div>
         <div class="container location-container">
             <div class="section-title">
                 <h2>Find Our Location</h2>
@@ -1164,7 +1148,7 @@
             </div>
             
             <div class="location-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.1254567890123!2d37.95469071535597!3d-2.5225625999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x183bac5b77b1f671%3A0x817dad4d9bb4cd18!2sFXG4%2BXWC%2C%20Machinery!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.1254567890123!2d37.95469071535597!3d-2.5225625999999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x183bac5b77b1f671%3A0x817dad4d9bb4cd18!2sFXG4%2BXWC%2C%20Machinery!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" title="Map to The Go Getter Academy - Kyaani"></iframe>
                 <div class="location-overlay">
                     <h3>The Go Getter Academy - Kyaani</h3>
                     <p>FXG4+XWC, Machinery, Kenya</p>
@@ -1175,7 +1159,6 @@
 
     <!-- FAQ Section -->
     <section class="faq-section">
-        <div class="floating-particles" id="faqParticles"></div>
         <div class="container faq-container">
             <div class="section-title">
                 <h2>Frequently Asked Questions</h2>
@@ -1187,7 +1170,7 @@
                     How can I schedule a campus tour? <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>To schedule a campus tour, please call our admissions office at +254 726 461 738 / +254 715 883 721 during office hours or fill out the contact form with your preferred date and time. We offer tours Monday through Friday from 9:00 AM to 3:00 PM.</p>
+                    <p>To schedule a campus tour, please call our admissions office at <a href="tel:+254726461738">+254 726 461 738</a> or <a href="tel:+254715883721">+254 715 883 721</a> during office hours or fill out the contact form with your preferred date and time. We offer tours Monday through Friday from 9:00 AM to 3:00 PM.</p>
                 </div>
             </div>
             
@@ -1196,7 +1179,7 @@
                     What is the best time to contact the school? <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>Our main office is open Monday through Friday from 8:00 AM to 5:00 PM and Saturday from 8:00 AM to 1:00 PM. The best time to reach us by phone is between 9:00 AM and 4:00 PM on weekdays. For non-urgent matters, you can email us at info@gogetteracademy.edu anytime.</p>
+                    <p>Our main office is open Monday through Friday from 8:00 AM to 5:00 PM and Saturday from 8:00 AM to 1:00 PM. The best time to reach us by phone is between 9:00 AM and 4:00 PM on weekdays. For non-urgent matters, you can email us at <a href="mailto:info@thegogetteracademy-kyaani.com">info@thegogetteracademy-kyaani.com</a> anytime.</p>
                 </div>
             </div>
             
@@ -1214,7 +1197,7 @@
                     Can I meet with a specific teacher or department? <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>Yes, we can arrange meetings with teachers or department heads. Please specify who you'd like to meet in your message, and we'll coordinate with them to find a suitable time. </p>
+                    <p>Yes, we can arrange meetings with teachers or department heads. Please specify who you'd like to meet in your message, and we'll coordinate with them to find a suitable time.</p>
                 </div>
             </div>
             
@@ -1223,7 +1206,7 @@
                     Do you have an admissions email? <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>For admissions-related questions, please contact adm+254 726 461 738 / +254 715 883 721. This includes inquiries about application procedures, required documents, and admission timelines.</p>
+                    <p>For admissions-related questions, please contact <a href="tel:+254726461738">+254 726 461 738</a> or <a href="tel:+254715883721">+254 715 883 721</a>. This includes inquiries about application procedures, required documents, and admission timelines.</p>
                 </div>
             </div>
         </div>
@@ -1231,17 +1214,16 @@
 
     <!-- Footer -->
     <footer>
-        <div class="floating-particles" id="footerParticles"></div>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>About Us</h3>
-                    <p>The Go Getter Academy - Kyaani is committed to providing quality education that prepares students for academic success and life beyond the classroom."Twaendea Ufanisi."</p>
+                    <p>The Go Getter Academy - Kyaani is committed to providing quality education that prepares students for academic success and life beyond the classroom. "Twaendea Ufanisi."</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://facebook.com/GoGetterAcademy" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/GoGetterAcademy" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/GoGetterAcademy" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/company/GoGetterAcademy" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -1251,17 +1233,16 @@
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="academy.html">Academics</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
-                       
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Info</h3>
                     <div class="contact-info">
-                        <p><i class="fas fa-map-marker-alt"></i> Kyaani, Mahinery. P. O. BOX 66-90136 NZEEKA</p>
-                    <p><i class="fas fa-phone"></i> +254 726 061 907 / +254 726 461 738 / +254 715 883 721</p>
-                    <p><i class="fas fa-envelope"></i> </p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Kyaani, Machinery. P. O. BOX 66-90136 NZEEKA</p>
+                        <p><i class="fas fa-phone"></i> +254 726 061 907 / +254 726 461 738 / +254 715 883 721</p>
+                        <p><i class="fas fa-envelope"></i> info@thegogetteracademy-kyaani.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
                     </div>
                 </div>
             </div>
@@ -1271,10 +1252,10 @@
         </div>
     </footer>
 
-    <!-- ===== SCROLL TO TOP BUTTON ===== -->
-    <button class="scroll-to-top" id="scrollToTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <!-- ===== BACK TO TOP BUTTON ===== -->
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
 
     <script>
         // Mobile Menu Toggle
@@ -1367,45 +1348,6 @@
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
         
-        // Create floating particles
-        function createParticles(containerId) {
-            const particlesContainer = document.getElementById(containerId);
-            if (!particlesContainer) return;
-            
-            const particleCount = 25;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random size between 5px and 15px
-                const size = Math.random() * 10 + 5;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Random position
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${Math.random() * 100}%`;
-                
-                // Random opacity
-                particle.style.opacity = Math.random() * 0.5 + 0.3;
-                
-                // Random animation duration between 10s and 20s
-                const duration = Math.random() * 10 + 10;
-                particle.style.animation = `floatParticle ${duration}s linear infinite`;
-                
-                // Random delay
-                particle.style.animationDelay = `${Math.random() * 5}s`;
-                
-                // Random color variation
-                const colors = ['rgba(255, 255, 255, 0.6)', 'rgba(245, 166, 35, 0.5)', 'rgba(231, 76, 60, 0.4)'];
-                const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                particle.style.backgroundColor = randomColor;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        
         // FAQ Accordion Functionality
         const faqItems = document.querySelectorAll('.faq-item');
         if (faqItems.length > 0) {
@@ -1461,9 +1403,6 @@
                     message
                 };
                 
-                // In a real implementation, you would send this to a server
-                console.log('Form submitted:', formData);
-                
                 // Show success message
                 alert('Thank you for your message! We will contact you shortly.');
                 
@@ -1472,21 +1411,22 @@
             });
         }
         
-        // Scroll to top button functionality
-        const scrollToTopBtn = document.getElementById('scrollToTop');
+        // Back to top button functionality
+        const backToTopBtn = document.getElementById('backToTop');
         
-        if (scrollToTopBtn) {
+        if (backToTopBtn) {
             // Show/hide button based on scroll position
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 500) {
-                    scrollToTopBtn.classList.add('visible');
+                    backToTopBtn.classList.add('visible');
                 } else {
-                    scrollToTopBtn.classList.remove('visible');
+                    backToTopBtn.classList.remove('visible');
                 }
             });
             
             // Scroll to top when clicked
-            scrollToTopBtn.addEventListener('click', () => {
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
                 window.scrollTo({
                     top: 0,
                     behavior: 'smooth'
@@ -1494,16 +1434,8 @@
             });
         }
         
-        // Initialize animations and particles on page load
+        // Initialize animations on page load
         document.addEventListener('DOMContentLoaded', () => {
-            // Create particles for each section
-            createParticles('heroParticles');
-            createParticles('contactHeroParticles');
-            createParticles('contactParticles');
-            createParticles('locationParticles');
-            createParticles('faqParticles');
-            createParticles('footerParticles');
-            
             // Trigger initial scroll animation
             animateOnScroll();
         });
