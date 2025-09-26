@@ -9,13 +9,13 @@
     <meta name="author" content="The Go Getter Academy">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
-    <link rel="canonical" href="https://www.thegogetteracademy-kyaani.in/contact.html">
+    <link rel="canonical" href="https://www.thegogetteracademy-kyaani.in/contact/">
     
     <!-- Open Graph / Social Media -->
     <meta property="og:title" content="Contact The Go Getter Academy - Kyaani | Reach Out Today">
     <meta property="og:description" content="Get in touch with The Go Getter Academy in Kyaani, Kenya. Schedule a tour, ask questions, or request information about our educational programs.">
     <meta property="og:image" content="https://www.gogetteracademy.edu/assets/images/contact-og.jpg">
-    <meta property="og:url" content="https://www.thegogetteracademy-kyaani.in/contact.html">
+    <meta property="og:url" content="https://www.thegogetteracademy-kyaani.in/contact/">
     <meta property="og:type" content="website">
     
     <!-- Twitter Cards -->
@@ -171,7 +171,6 @@
             position: relative;
         }
         
-        .section-title h1,
         .section-title h2 {
             font-size: 2.8rem;
             color: var(--primary);
@@ -308,7 +307,7 @@
             position: relative;
             overflow: hidden;
             background: linear-gradient(135deg, rgba(26, 58, 110, 0.9), rgba(245, 166, 35, 0.8)), 
-                        url('assets/images/contact-hero.jpg') center/cover no-repeat;
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
             color: white;
         }
         
@@ -367,7 +366,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('assets/images/contact-bg.jpg') center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
             opacity: 0.1;
             z-index: -1;
         }
@@ -483,7 +482,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('assets/images/form-bg.jpg') center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
             opacity: 0.05;
             z-index: 0;
         }
@@ -944,6 +943,31 @@
             .faq-question {
                 font-size: 1.1rem;
             }
+            
+            /* Center content on mobile */
+            .contact-info,
+            .contact-form-container,
+            .faq-container {
+                text-align: center;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .social-links-contact {
+                justify-content: center;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 576px) {
@@ -979,10 +1003,10 @@
             .contact-form-container {
                 padding: 30px 20px;
             }
-            .contact-details p {
-                font-size : 0.9rem;
-            }
             
+            .contact-details p {
+                font-size: 0.9rem;
+            }
         }
         
         @media (max-width: 400px) {
@@ -1006,8 +1030,9 @@
             .contact-hero h1 {
                 font-size: 1.8rem;
             }
+            
             .contact-details p {
-                font-size : 0.62rem;
+                font-size: 0.62rem;
             }
         }
     </style>
@@ -1016,8 +1041,8 @@
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="Go Getter Academy Logo" id="logo-img">
+            <a href="../" class="logo">
+                <img src="../assets/images/logo.png" alt="Go Getter Academy Logo" id="logo-img">
                 <div class="logo-text">The Go Getter <span>Academy - Kyaani</span></div>
             </a>
             
@@ -1026,11 +1051,11 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul id="navMenu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="academy.html">Academy</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../about/">About</a></li>
+					<li><a href="../academy/">Academy</a></li>
+                    <li><a href="../gallery/">Gallery</a></li>
+                    <li><a href="../contact/" class="active">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -1238,11 +1263,11 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="academy.html">Academics</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="../">Home</a></li>
+                        <li><a href="../about/">About Us</a></li>
+                        <li><a href="../academy/">Academics</a></li>
+                        <li><a href="../gallery/">Gallery</a></li>
+                        <li><a href="../contact/">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">

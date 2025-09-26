@@ -9,7 +9,7 @@
     <meta name="author" content="The Go Getter Academy">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
-    <link rel="canonical" href="https://thegogetteracademy-kyaani.in/gallery.html">
+    <link rel="canonical" href="https://thegogetteracademy-kyaani.in/gallery/">
     
     <!-- SEO Enhancements -->
     <meta name="copyright" content="Copyright 2025 The Go Getter Academy">
@@ -23,7 +23,7 @@
     <meta property="og:title" content="The Go Getter Academy - Kyaani | Photo Gallery">
     <meta property="og:description" content="Explore our vibrant school life through our extensive photo gallery showcasing classes, facilities, events and student activities.">
     <meta property="og:image" content="https://thegogetteracademy-kyaani.com/assets/images/gallery-cover.jpg">
-    <meta property="og:url" content="https://thegogetteracademy-kyaani.in/gallery.html">
+    <meta property="og:url" content="https://thegogetteracademy-kyaani.in/gallery/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_GB">
     
@@ -90,7 +90,7 @@
             line-height: 1.7;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            padding-top: 100px;
+            padding-top: 80px; /* Space for fixed header */
         }
         
         a {
@@ -238,11 +238,11 @@
         }
         
         .logo-text {
-            font-size: 1.8rem;
+            font-size: 2.0rem;
             font-weight: 700;
             color: var(--primary);
             text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            white-space: nowrap;
         }
         
         .logo-text span {
@@ -661,6 +661,7 @@
             color: white;
             padding: 80px 0 30px;
             position: relative;
+            text-align: center; /* Center footer content */
         }
         
         footer::before {
@@ -678,6 +679,11 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 50px;
             margin-bottom: 50px;
+            justify-items: center; /* Center grid items */
+        }
+        
+        .footer-column {
+            text-align: center; /* Center all text */
         }
         
         .footer-column h3 {
@@ -694,7 +700,8 @@
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 50px;
             height: 3px;
             background-color: var(--accent);
@@ -708,23 +715,15 @@
         
         .footer-links {
             list-style: none;
+            padding-left: 0; /* Remove default padding */
         }
         
         .footer-links li {
             margin-bottom: 15px;
-            position: relative;
-            padding-left: 20px;
         }
         
         .footer-links li::before {
-            content: '\f054';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 5px;
-            color: var(--secondary);
-            font-size: 0.7rem;
+            display: none; /* Remove bullet icon */
         }
         
         .footer-links a {
@@ -734,27 +733,24 @@
         
         .footer-links a:hover {
             color: var(--secondary);
-            padding-left: 10px;
         }
         
         .contact-info p {
             position: relative;
-            padding-left: 30px;
             margin-bottom: 20px;
         }
         
         .contact-info i {
-            position: absolute;
-            left: 0;
-            top: 5px;
-            color: var(--secondary);
-            font-size: 1.1rem;
+            display: block; /* Make icons appear above text */
+            margin-bottom: 10px;
+            font-size: 1.5rem;
         }
         
         .social-links {
             display: flex;
             gap: 15px;
             margin-top: 25px;
+            justify-content: center; /* Center social icons */
         }
         
         .social-links a {
@@ -919,22 +915,27 @@
         }
         
         @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+            
             .header-container {
                 padding: 5px 0;
             }
             
             .logo img {
-                height: 60px;
+                height: 50px;
+                margin-right: 10px;
             }
             
             .logo-text {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
             }
             
             nav ul {
                 display: none;
                 position: fixed;
-                top: 80px;
+                top: 70px;
                 left: 0;
                 width: 100%;
                 background-color: white;
@@ -942,6 +943,7 @@
                 padding: 10px 0;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
                 z-index: 999;
+                text-align: center; /* Center mobile menu items */
             }
             
             nav ul.show {
@@ -950,7 +952,6 @@
             
             nav ul li {
                 margin: 0;
-                text-align: center;
                 padding: 10px 0;
             }
             
@@ -1012,17 +1013,23 @@
             }
             
             .contact-info i {
-                display: none;
+                display: block;
+                margin-bottom: 10px;
             }
         }
         
         @media (max-width: 576px) {
+            body {
+                padding-top: 60px;
+            }
+            
             .logo img {
-                height: 50px;
+                height: 35px;
+                margin-right: 8px;
             }
             
             .logo-text {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .header-container {
@@ -1030,7 +1037,7 @@
             }
             
             nav ul {
-                top: 70px;
+                top: 60px;
             }
             
             .gallery-slider {
@@ -1055,94 +1062,102 @@
                 font-size: 1.2rem;
             }
         }
-		@media (max-width: 400px) {
-    body {
-        padding-top: 30px;
-    }
+        
+        @media (max-width: 400px) {
+            body {
+                padding-top: 60px;
+            }
 
-    .logo img {
-        height: 35px;
-    }
+            .logo {
+                flex-direction: row;
+                align-items: center;
+            }
 
-    .logo-text {
-        font-size: 0.5rem;
-    }
+            .logo img {
+                height: 55px;
+                margin-bottom: 0;
+            }
 
-    .mobile-menu-btn {
-        font-size: 1.2rem;
-    }
+            .logo-text {
+                font-size: 0.655rem;
+                white-space: normal;
+                max-width: 180px;
+            }
 
-    .gallery-hero {
-        min-height: 400px;
-        padding: 0 5px;
-    }
+            .mobile-menu-btn {
+                font-size: 1.3rem;
+            }
 
-    .gallery-hero h1 {
-        font-size: 1.8rem;
-    }
+            .gallery-hero {
+                min-height: 400px;
+                padding: 0 5px;
+            }
 
-    .gallery-hero p {
-        font-size: 1rem;
-    }
+            .gallery-hero h1 {
+                font-size: 1.8rem;
+            }
 
-    .section-title h2 {
-        font-size: 1.5rem;
-    }
+            .gallery-hero p {
+                font-size: 1rem;
+            }
 
-    .section-title p {
-        font-size: 0.95rem;
-    }
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
 
-    .gallery-slider {
-        height: 250px;
-    }
+            .section-title p {
+                font-size: 0.95rem;
+            }
 
-    .gallery-slider-caption {
-        padding: 10px;
-    }
+            .gallery-slider {
+                height: 250px;
+            }
 
-    .gallery-slider-caption h3 {
-        font-size: 1rem;
-    }
+            .gallery-slider-caption {
+                padding: 10px;
+            }
 
-    .gallery-slider-arrow {
-        width: 35px;
-        height: 35px;
-        font-size: 1rem;
-    }
+            .gallery-slider-caption h3 {
+                font-size: 1rem;
+            }
 
-    .photo-item {
-        height: 200px;
-    }
+            .gallery-slider-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
 
-    .btn {
-        padding: 12px 20px;
-        font-size: 14px;
-    }
+            .photo-item {
+                height: 200px;
+            }
 
-    .footer-column h3 {
-        font-size: 1.1rem;
-    }
+            .btn {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
 
-    .footer-column p,
-    .footer-links a,
-    .contact-info p {
-        font-size: 0.9rem;
-    }
+            .footer-column h3 {
+                font-size: 1.1rem;
+            }
 
-    .social-links a {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
+            .footer-column p,
+            .footer-links a,
+            .contact-info p {
+                font-size: 0.9rem;
+            }
 
-    .back-to-top {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-}
+            .social-links a {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
 
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -1161,11 +1176,11 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul id="navMenu">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../about.html">About</a></li>
-                    <li><a href="../academy.html">Academy</a></li>
-                    <li><a href="gallery.html" class="active">Gallery</a></li>
-                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../about/">About</a></li>
+                    <li><a href="../academy/">Academy</a></li>
+                    <li><a href="../gallery/" class="active">Gallery</a></li>
+                    <li><a href="../contact/">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -1196,25 +1211,25 @@
                         <div class="gallery-slider-slide active">
                             <img src="../assets/images/class1.jpeg">
                             <div class="gallery-slider-caption">
-                                <h3>Interactive Learning Environment</h3>
+                                
                             </div>
                         </div>
                         <div class="gallery-slider-slide">
                             <img src="../assets/images/class2.jpeg">
                             <div class="gallery-slider-caption">
-                                <h3>Hands-on Science Activities</h3>
+                                
                             </div>
                         </div>
                         <div class="gallery-slider-slide">
                             <img src="../assets/images/class3.jpeg">
                             <div class="gallery-slider-caption">
-                                <h3>Creative Arts Program</h3>
+                                
                             </div>
                         </div>
                         <div class="gallery-slider-slide">
                             <img src="../assets/images/class4.jpeg">
                             <div class="gallery-slider-caption">
-                                <h3>Technology-Enhanced Learning</h3>
+                               
                             </div>
                         </div>
                     </div>
@@ -1251,25 +1266,25 @@
                         <div class="gallery-slider-slide active">
                             <img src="../assets/images/facility1.jpeg">
                             <div class="gallery-slider-caption">
-                                <h3>Well-Stocked Library</h3>
+                                
                             </div>
                         </div>
                         <div class="gallery-slider-slide">
                             <img src="../assets/images/facility2.jpeg">
                             <div class="gallery-slider-caption">
-                                <h3>Modern Science Laboratory</h3>
+                                <
                             </div>
                         </div>
                         <div class="gallery-slider-slide">
                             <img src="../assets/images/facility3.jpeg">
                             <div class="gallery-slider-caption">
-                                <h3>Spacious Playground</h3>
+                               
                             </div>
                         </div>
                         <div class="gallery-slider-slide">
                             <img src="../assets/images/facility4.jpeg">
                             <div class="gallery-slider-caption">
-                                <h3>Computer Technology Center</h3>
+                                
                             </div>
                         </div>
                     </div>
@@ -1569,19 +1584,21 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../about.html">About Us</a></li>
-                        <li><a href="../academy.html">Academics</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="../">Home</a></li>
+                        <li><a href="../about/">About Us</a></li>
+                        <li><a href="../academy/">Academics</a></li>
+                        <li><a href="../gallery/">Gallery</a></li>
+                        <li><a href="../contact/">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Info</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Kyaani, Machinery. P. O. BOX 66-90136 NZEEKA</p>
-                    <p><i class="fas fa-phone"></i> +254 726 061 907 / +254 726 461 738 / +254 715 883 721</p>
-                    <p><i class="fas fa-envelope"></i> infoadmin@thegogetteracademy-kyaani.in</p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Kyaani, Machinery. P. O. BOX 66-90136 NZEEKA</p>
+                        <p><i class="fas fa-phone"></i> +254 726 061 907 / +254 726 461 738 / +254 715 883 721</p>
+                        <p><i class="fas fa-envelope"></i> infoadmin@thegogetteracademy-kyaani.in</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">

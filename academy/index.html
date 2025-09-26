@@ -9,7 +9,7 @@
     <meta name="author" content="The Go Getter Academy">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
-    <link rel="canonical" href="https://thegogetteracademy-kyaani.in/academy.html">
+    <link rel="canonical" href="https://thegogetteracademy-kyaani.in/academy/">
     
     <!-- SEO Enhancements -->
     <meta name="copyright" content="Copyright 2025 The Go Getter Academy">
@@ -23,7 +23,7 @@
     <meta property="og:title" content="The Go Getter Academy - Kyaani | Academic Excellence">
     <meta property="og:description" content="Privately owned mixed day and boarding school offering quality education from early childhood through junior secondary school.">
     <meta property="og:image" content="https://thegogetteracademy-kyaani.com/assets/images/academics.jpg">
-    <meta property="og:url" content="https://thegogetteracademy-kyaani.in/academy.html">
+    <meta property="og:url" content="https://thegogetteracademy-kyaani.in/academy/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_GB">
     
@@ -41,7 +41,7 @@
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
       "name": "The Go Getter Academy - Kyaani",
-      "url": "https://thegogetteracademy-kyaani.in/academy.html",
+      "url": "https://thegogetteracademy-kyaani.in/academy/",
       "logo": "https://thegogetteracademy-kyaani.in/assets/images/logo.png",
       "description": "Comprehensive academic programs from early childhood through junior secondary school",
       "address": {
@@ -64,11 +64,11 @@
     </script>
     
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/x-icon" href="../assets/favicon/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg">
+    <link rel="manifest" href="../assets/favicon/site.webmanifest">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -97,6 +97,9 @@
             line-height: 1.7;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            position: relative;
+            padding-top: 80px; /* Space for fixed header */
+            text-align: center; /* Center all text by default */
         }
         
         a {
@@ -173,6 +176,7 @@
         section {
             padding: 100px 0;
             position: relative;
+            overflow: hidden;
         }
         
         .section-title {
@@ -244,11 +248,11 @@
         }
         
         .logo-text {
-            font-size: 1.8rem;
+            font-size: 2.0rem;
             font-weight: 700;
             color: var(--primary);
             text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            white-space: nowrap;
         }
         
         .logo-text span {
@@ -355,6 +359,7 @@
             opacity: 1;
             transform: translateY(30px);
             transition: all 0.8s ease;
+            text-align: left; /* Override body text-align for desktop */
         }
         
         .academy-text.animated {
@@ -403,6 +408,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
+            justify-items: center; /* Center program cards */
         }
         
         .program-card {
@@ -415,6 +421,8 @@
             position: relative;
             z-index: 1;
             cursor: pointer;
+            max-width: 400px; /* Limit card width */
+            width: 100%; /* Ensure it takes full width up to max-width */
         }
         
         .program-card:hover {
@@ -489,7 +497,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            justify-content: center;
+            justify-items: center; /* Center benefit cards */
         }
         
         .benefit-card {
@@ -507,6 +515,7 @@
             opacity: 0;
             transform: translateY(20px);
             cursor: pointer;
+            text-align: center; /* Center content in benefit cards */
         }
         
         .benefit-card.animated {
@@ -567,7 +576,7 @@
             right: 0;
             width: 40%;
             height: 100%;
-            background: url('assets/images/stem-bg.jpg') center/cover no-repeat;
+            background: url('../assets/images/stem-bg.jpg') center/cover no-repeat;
             opacity: 0.1;
         }
         
@@ -581,6 +590,7 @@
         
         .stem-text {
             flex: 1;
+            text-align: left; /* Override body text-align for desktop */
         }
         
         .stem-text h2 {
@@ -617,6 +627,7 @@
             margin-bottom: 15px;
             position: relative;
             padding-left: 35px;
+            text-align: left; /* Override body text-align for desktop */
         }
         
         .stem-features li::before {
@@ -734,7 +745,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            justify-content: center;
+            justify-items: center; /* Center activity cards */
         }
         
         .activity-card {
@@ -807,7 +818,7 @@
         
         /* Call to Action */
         .cta {
-            background: linear-gradient(rgba(26, 58, 110, 0.9), rgba(26, 58, 110, 0.9)), url('assets/images/cta-bg.jpg');
+            background: linear-gradient(rgba(26, 58, 110, 0.9), rgba(26, 58, 110, 0.9)), url('../assets/images/cta-bg.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -863,6 +874,7 @@
             color: white;
             padding: 80px 0 30px;
             position: relative;
+            text-align: center; /* Center footer content */
         }
         
         footer::before {
@@ -880,6 +892,11 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 50px;
             margin-bottom: 50px;
+            justify-items: center; /* Center grid items */
+        }
+        
+        .footer-column {
+            text-align: center; /* Center all text */
         }
         
         .footer-column h3 {
@@ -896,7 +913,8 @@
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 50px;
             height: 3px;
             background-color: var(--accent);
@@ -910,23 +928,15 @@
         
         .footer-links {
             list-style: none;
+            padding-left: 0; /* Remove default padding */
         }
         
         .footer-links li {
             margin-bottom: 15px;
-            position: relative;
-            padding-left: 20px;
         }
         
         .footer-links li::before {
-            content: '\f054';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 5px;
-            color: var(--secondary);
-            font-size: 0.7rem;
+            display: none; /* Remove bullet icon */
         }
         
         .footer-links a {
@@ -936,27 +946,24 @@
         
         .footer-links a:hover {
             color: var(--secondary);
-            padding-left: 10px;
         }
         
         .contact-info p {
             position: relative;
-            padding-left: 30px;
             margin-bottom: 20px;
         }
         
         .contact-info i {
-            position: absolute;
-            left: 0;
-            top: 5px;
-            color: var(--secondary);
-            font-size: 1.1rem;
+            display: block; /* Make icons appear above text */
+            margin-bottom: 10px;
+            font-size: 1.5rem;
         }
         
         .social-links {
             display: flex;
             gap: 15px;
             margin-top: 25px;
+            justify-content: center; /* Center social icons */
         }
         
         .social-links a {
@@ -1589,6 +1596,24 @@
                 height: 300px;
                 margin-bottom: 20px;
             }
+            
+            /* Center content on tablet */
+            .academy-text,
+            .stem-text,
+            .stem-features li,
+            .class-details,
+            .class-features li {
+                text-align: center;
+            }
+            
+            .stem-text h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .class-header {
+                justify-content: center;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1598,6 +1623,9 @@
             
             .header-container {
                 padding: 5px 0;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
             }
             
             .logo img {
@@ -1624,6 +1652,7 @@
                 padding: 10px 0;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
                 z-index: 999;
+                align-items: center; /* Center mobile menu items */
             }
             
             nav ul.show {
@@ -1646,6 +1675,9 @@
             .mobile-menu-btn {
                 display: block;
                 font-size: 1.5rem;
+                position: absolute;
+                right: 20px;
+                top: 20px;
             }
             
             .activity-tabs {
@@ -1678,6 +1710,19 @@
             
             .gallery-container {
                 height: 350px;
+            }
+            
+            /* Center floating elements */
+            .academy-intro::before,
+            .academy-intro::after,
+            .why-us::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            /* Center CTA buttons */
+            .hero-btns {
+                justify-content: center;
             }
         }
         
@@ -1763,162 +1808,11 @@
             .gallery-container {
                 height: 200px;
             }
-        }
-		/* Addition to existing media queries */
-        @media (max-width: 768px) {
-            /* Center all text content */
-            .academy-text,
-            .stem-text,
-            .section-title,
-            .footer-column,
-            .class-details,
-            .class-header,
-            .activity-info {
-                text-align: center;
-            }
-
-            /* Center section titles */
-            .section-title h2::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            /* Center program cards */
-            .programs-grid {
-                justify-items: center;
-            }
-
-            /* Center benefit cards */
-            .benefits-grid {
-                justify-items: center;
-            }
-
-            /* Center activity cards */
-            .activity-grid {
-                justify-items: center;
-            }
-
-            /* Center class content */
-            .class-header {
-                justify-content: center;
-            }
-
-            /* Center footer content */
-            .footer-column h3::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            /* Center modal content */
-            .modal-content {
-                text-align: center;
-            }
-
-            .class-header {
-                flex-direction: column;
-            }
-
-            .class-icon {
-                margin: 0 auto 15px;
-            }
-
-            /* Center logo and navigation */
-            .header-container {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-                padding: 15px 0;
-            }
-
-            nav ul {
-                align-items: center;
-            }
-
-            .logo {
-                justify-content: center;
-            }
-
-            /* Center CTA buttons */
-            .hero-btns {
-                justify-content: center;
-            }
-
-            /* Center floating elements */
-            .academy-intro::before,
-            .academy-intro::after,
-            .why-us::before {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-
-        @media (max-width: 576px) {
-            /* Adjust section padding */
-            section {
-                padding: 60px 0;
-            }
-
-            /* Center all text */
-            .academy-text p,
-            .stem-text p,
-            .stem-features li,
-            .class-features li {
-                text-align: center;
-            }
-
-            /* Center list markers */
-            .stem-features li::before,
-            .class-features li::before {
-                left: 10px;
-            }
-
-            /* Center tabs */
-            .activity-tabs {
-                justify-content: center;
-            }
-
-            /* Center footer columns */
-            .footer-content {
-                justify-items: center;
-                text-align: center;
-            }
-
-            .contact-info p {
-                text-align: center;
-                padding-left: 0;
-            }
-
-            .contact-info i {
-                position: relative;
-                margin-right: 5px;
-            }
-
-            .social-links {
-                justify-content: center;
-            }
-        }
-
-        /* Additional centering for small screens */
-        @media (max-width: 400px) {
-            .section-title h2 {
-                font-size: 1.6rem;
-            }
-
-            .btn {
-                padding: 12px 20px;
-                font-size: 14px;
-            }
-
+            
             .program-card,
             .benefit-card,
             .activity-card {
                 max-width: 100%;
-            }
-
-            .mobile-menu-btn {
-                position: absolute;
-                right: 20px;
-                top: 20px;
             }
         }
     </style>
@@ -1930,8 +1824,8 @@
     <!-- ===== HEADER ===== -->
     <header id="header">
         <div class="container header-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="Go Getter Academy Logo" id="logo-img">
+            <a href="../" class="logo">
+                <img src="../assets/images/logo.png" alt="Go Getter Academy Logo" id="logo-img">
                 <div class="logo-text">The Go Getter <span>Academy - Kyaani</span></div>
             </a>
             
@@ -1940,11 +1834,11 @@
                     <i class="fas fa-bars"></i>
                 </button>
                 <ul id="navMenu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="academy.html" class="active">Academy</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../about/">About</a></li>
+                    <li><a href="../academy/" class="active">Academy</a></li>
+                    <li><a href="../gallery/">Gallery</a></li>
+                    <li><a href="../contact/">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -1966,7 +1860,7 @@
                 </div>
                 
                 <div class="academy-image">
-                    <img src="assets/images/academics.jpg" alt="Students in classroom">
+                    <img src="../assets/images/academics.jpg" alt="Students in classroom">
                 </div>
             </div>
         </div>
@@ -1985,7 +1879,7 @@
                 <!-- Lower Primary Program Card -->
                 <div class="program-card" id="lowerPrimaryBtn">
                     <div class="program-image">
-                        <img src="assets/images/lower.jpeg" alt="Lower Primary">
+                        <img src="../assets/images/lower.jpeg" alt="Lower Primary">
                     </div>
                     <div class="program-info">
                         <h3>ECDE & Lower Primary</h3>
@@ -1997,7 +1891,7 @@
                 <!-- Upper Primary Program Card -->
                 <div class="program-card" id="upperPrimaryBtn">
                     <div class="program-image">
-                        <img src="assets/images/upper.jpeg" alt="Upper Primary">
+                        <img src="../assets/images/upper.jpeg" alt="Upper Primary">
                     </div>
                     <div class="program-info">
                         <h3>Upper Primary</h3>
@@ -2009,7 +1903,7 @@
                 <!-- Junior Secondary Program Card -->
                 <div class="program-card" id="juniorSecondaryBtn">
                     <div class="program-image">
-                        <img src="assets/images/jss.jpeg" alt="Junior Secondary">
+                        <img src="../assets/images/jss.jpeg" alt="Junior Secondary">
                     </div>
                     <div class="program-info">
                         <h3>Junior Secondary</h3>
@@ -2095,11 +1989,11 @@
                         <li>Integration of technology across all subjects</li>
                     </ul>
                     
-                    <a href="contact.html" class="btn">Learn More About Our STEM Program</a>
+                    <a href="../contact/" class="btn">Learn More About Our STEM Program</a>
                 </div>
                 
                 <div class="stem-image">
-                    <img src="assets/images/stem.webp" alt="STEM Lab">
+                    <img src="../assets/images/stem.webp" alt="STEM Lab">
                 </div>
             </div>
         </div>
@@ -2124,34 +2018,34 @@
                 <div class="activity-grid">
                     <div class="activity-card">
                         <div class="activity-image">
-                            <img src="assets/images/footbal.jpeg" alt="Football">
+                            <img src="../assets/images/footbal.jpeg" alt="Football">
                         </div>
                         <div class="activity-info">
                             <h3>Football</h3>
                             <p>Our football program develops teamwork, discipline, and physical fitness while competing in inter-school tournaments.</p>
-                            <a href="gallery.html" class="btn show-gallery" data-activity="football">View Gallery</a>
+                            <a href="../gallery/" class="btn show-gallery" data-activity="football">View Gallery</a>
                         </div>
                     </div>
                     
                     <div class="activity-card">
                         <div class="activity-image">
-                            <img src="assets/images/athletics.jpeg" alt="Athletics">
+                            <img src="../assets/images/athletics.jpeg" alt="Athletics">
                         </div>
                         <div class="activity-info">
                             <h3>Athletics</h3>
                             <p>Track and field events that promote physical endurance, speed, and healthy competition among students.</p>
-                            <a href="gallery.html" class="btn show-gallery" data-activity="athletics">View Gallery</a>
+                            <a href="../gallery/" class="btn show-gallery" data-activity="athletics">View Gallery</a>
                         </div>
                     </div>
                     
                     <div class="activity-card">
                         <div class="activity-image">
-                            <img src="assets/images/swimming.jpeg" alt="Swimming">
+                            <img src="../assets/images/swimming.jpeg" alt="Swimming">
                         </div>
                         <div class="activity-info">
                             <h3>Swimming</h3>
                             <p>Swimming lessons for all skill levels, focusing on water safety and competitive swimming techniques.</p>
-                            <a href="gallery.html" class="btn show-gallery" data-activity="swimming">View Gallery</a>
+                            <a href="../gallery/" class="btn show-gallery" data-activity="swimming">View Gallery</a>
                         </div>
                     </div>
                 </div>
@@ -2161,34 +2055,34 @@
                 <div class="activity-grid">
                     <div class="activity-card">
                         <div class="activity-image">
-                            <img src="assets/images/music.jpeg" alt="Music">
+                            <img src="../assets/images/music.jpeg" alt="Music">
                         </div>
                         <div class="activity-info">
                             <h3>Music</h3>
                             <p>Instrumental and vocal training, choir participation, and opportunities to perform at school events.</p>
-                            <a href="gallery.html" class="btn show-gallery" data-activity="music">View Gallery</a>
+                            <a href="../gallery/" class="btn show-gallery" data-activity="music">View Gallery</a>
                         </div>
                     </div>
                     
                     <div class="activity-card">
                         <div class="activity-image">
-                            <img src="assets/images/drama.jpeg" alt="Drama">
+                            <img src="../assets/images/drama.jpeg" alt="Drama">
                         </div>
                         <div class="activity-info">
                             <h3>Drama</h3>
                             <p>Theatrical productions, public speaking, and creative expression through performance arts.</p>
-                            <a href="gallery.html" class="btn show-gallery" data-activity="drama">View Gallery</a>
+                            <a href="../gallery/" class="btn show-gallery" data-activity="drama">View Gallery</a>
                         </div>
                     </div>
                     
                     <div class="activity-card">
                         <div class="activity-image">
-                            <img src="assets/images/pa.jpeg" alt="Visual Arts">
+                            <img src="../assets/images/pa.jpeg" alt="Visual Arts">
                         </div>
                         <div class="activity-info">
                             <h3>Performing & Visual Arts</h3>
                             <p>Drawing, painting, modelling, sculpture, and other visual arts mediums to nurture creativity and artistic skills.</p>
-                            <a href="gallery.html" class="btn show-gallery" data-activity="arts">View Gallery</a>
+                            <a href="../gallery/" class="btn show-gallery" data-activity="arts">View Gallery</a>
                         </div>
                     </div>
                 </div>
@@ -2198,34 +2092,34 @@
                 <div class="activity-grid">
                     <div class="activity-card">
                         <div class="activity-image">
-                            <img src="assets/images/science.jpeg" alt="Science Club">
+                            <img src="../assets/images/science.jpeg" alt="Science Club">
                         </div>
                         <div class="activity-info">
                             <h3>Science & Tech Club</h3>
                             <p>Hands-on experiments, robotics, coding projects, and participation in science fairs.</p>
-                            <a href="gallery.html" class="btn show-gallery" data-activity="science">View Gallery</a>
+                            <a href="../gallery/" class="btn show-gallery" data-activity="science">View Gallery</a>
                         </div>
                     </div>
                     
                     <div class="activity-card">
                         <div class="activity-image">
-                            <img src="assets/images/debate.jpeg" alt="Debate Club">
+                            <img src="../assets/images/debate.jpeg" alt="Debate Club">
                         </div>
                         <div class="activity-info">
                             <h3>Debate Club</h3>
                             <p>Developing critical thinking, research skills, and public speaking through competitive debate.</p>
-                            <a href="gallery.html" class="btn show-gallery" data-activity="debate">View Gallery</a>
+                            <a href="../gallery/" class="btn show-gallery" data-activity="debate">View Gallery</a>
                         </div>
                     </div>
                     
                     <div class="activity-card">
                         <div class="activity-image">
-                            <img src="assets/images/environment.jpeg" alt="Environmental Club">
+                            <img src="../assets/images/environment.jpeg" alt="Environmental Club">
                         </div>
                         <div class="activity-info">
                             <h3>Environmental Club</h3>
                             <p>Sustainability projects, tree planting, recycling initiatives, and environmental education.</p>
-                            <a href="gallery.html" class="btn show-gallery" data-activity="environment">View Gallery</a>
+                            <a href="../gallery/" class="btn show-gallery" data-activity="environment">View Gallery</a>
                         </div>
                     </div>
                 </div>
@@ -2243,8 +2137,8 @@
                 </div>
                 <p>We're excited to welcome new students and families to The Go Getter Academy - Kyaani. Our admissions team is ready to guide you through the enrollment process and answer any questions you may have.</p>
                 <div class="hero-btns">
-                    <a href="contact.html" class="btn">Schedule a Visit</a>
-                    <a href="academy.html" class="btn btn-accent">View Programs</a>
+                    <a href="../contact/" class="btn">Schedule a Visit</a>
+                    <a href="../academy/" class="btn btn-accent">View Programs</a>
                 </div>
             </div>
         </div>
@@ -2267,11 +2161,11 @@
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="academy.html">Academics</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="../">Home</a></li>
+                        <li><a href="../about/">About Us</a></li>
+                        <li><a href="../academy/">Academics</a></li>
+                        <li><a href="../gallery/">Gallery</a></li>
+                        <li><a href="../contact/">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -2311,13 +2205,13 @@
                         <div class="class-slideshow">
                             <div class="slideshow-track">
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/pp11.jpeg" alt="PP1 Class">
+                                    <img src="../assets/images/pp11.jpeg" alt="PP1 Class">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/pp12.jpeg" alt="PP1 Class">
+                                    <img src="../assets/images/pp12.jpeg" alt="PP1 Class">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/pp13.jpeg" alt="PP1 Class">
+                                    <img src="../assets/images/pp13.jpeg" alt="PP1 Class">
                                 </div>
                             </div>
                             <div class="slideshow-nav">
@@ -2359,13 +2253,13 @@
                         <div class="class-slideshow">
                             <div class="slideshow-track">
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/pp21.jpeg" alt="PP2 Class">
+                                    <img src="../assets/images/pp21.jpeg" alt="PP2 Class">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/pp22.jpeg" alt="PP2 Class">
+                                    <img src="../assets/images/pp22.jpeg" alt="PP2 Class">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/pp23.jpeg" alt="PP2 Class">
+                                    <img src="../assets/images/pp23.jpeg" alt="PP2 Class">
                                 </div>
                             </div>
                             <div class="slideshow-nav">
@@ -2407,13 +2301,13 @@
                         <div class="class-slideshow">
                             <div class="slideshow-track">
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g11.jpeg" alt="Grade 1">
+                                    <img src="../assets/images/g11.jpeg" alt="Grade 1">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g12.jpeg" alt="Grade 1">
+                                    <img src="../assets/images/g12.jpeg" alt="Grade 1">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g13.jpeg" alt="Grade 1">
+                                    <img src="../assets/images/g13.jpeg" alt="Grade 1">
                                 </div>
                             </div>
                             <div class="slideshow-nav">
@@ -2455,13 +2349,13 @@
                         <div class="class-slideshow">
                             <div class="slideshow-track">
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g21.jpeg" alt="Grade 2">
+                                    <img src="../assets/images/g21.jpeg" alt="Grade 2">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g22.jpeg" alt="Grade 2">
+                                    <img src="../assets/images/g22.jpeg" alt="Grade 2">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g23.jpeg" alt="Grade 2">
+                                    <img src="../assets/images/g23.jpeg" alt="Grade 2">
                                 </div>
                             </div>
                             <div class="slideshow-nav">
@@ -2503,13 +2397,13 @@
                         <div class="class-slideshow">
                             <div class="slideshow-track">
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g31.jpeg" alt="Grade 3">
+                                    <img src="../assets/images/g31.jpeg" alt="Grade 3">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g32.jpeg" alt="Grade 3">
+                                    <img src="../assets/images/g32.jpeg" alt="Grade 3">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g33.jpeg" alt="Grade 3">
+                                    <img src="../assets/images/g33.jpeg" alt="Grade 3">
                                 </div>
                             </div>
                             <div class="slideshow-nav">
@@ -2564,13 +2458,13 @@
                         <div class="class-slideshow">
                             <div class="slideshow-track">
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g41.jpeg" alt="Grade 4">
+                                    <img src="../assets/images/g41.jpeg" alt="Grade 4">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g42.jpeg" alt="Grade 4">
+                                    <img src="../assets/images/g42.jpeg" alt="Grade 4">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g43.jpeg" alt="Grade 4">
+                                    <img src="../assets/images/g43.jpeg" alt="Grade 4">
                                 </div>
                             </div>
                             <div class="slideshow-nav">
@@ -2612,13 +2506,13 @@
                         <div class="class-slideshow">
                             <div class="slideshow-track">
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g51.jpeg" alt="Grade 5">
+                                    <img src="../assets/images/g51.jpeg" alt="Grade 5">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g52.jpeg" alt="Grade 5">
+                                    <img src="../assets/images/g52.jpeg" alt="Grade 5">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g53.jpeg" alt="Grade 5">
+                                    <img src="../assets/images/g53.jpeg" alt="Grade 5">
                                 </div>
                             </div>
                             <div class="slideshow-nav">
@@ -2660,13 +2554,13 @@
                         <div class="class-slideshow">
                             <div class="slideshow-track">
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g61.jpeg" alt="Grade 6">
+                                    <img src="../assets/images/g61.jpeg" alt="Grade 6">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g62.jpeg" alt="Grade 6">
+                                    <img src="../assets/images/g62.jpeg" alt="Grade 6">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g63.jpeg" alt="Grade 6">
+                                    <img src="../assets/images/g63.jpeg" alt="Grade 6">
                                 </div>
                             </div>
                             <div class="slideshow-nav">
@@ -2721,13 +2615,13 @@
                         <div class="class-slideshow">
                             <div class="slideshow-track">
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g71.jpeg" alt="Grade 7">
+                                    <img src="../assets/images/g71.jpeg" alt="Grade 7">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g72.jpeg" alt="Grade 7">
+                                    <img src="../assets/images/g72.jpeg" alt="Grade 7">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g73.jpeg" alt="Grade 7">
+                                    <img src="../assets/images/g73.jpeg" alt="Grade 7">
                                 </div>
                             </div>
                             <div class="slideshow-nav">
@@ -2769,13 +2663,13 @@
                         <div class="class-slideshow">
                             <div class="slideshow-track">
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g81.jpeg" alt="Grade 8">
+                                    <img src="../assets/images/g81.jpeg" alt="Grade 8">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g82.jpeg" alt="Grade 8">
+                                    <img src="../assets/images/g82.jpeg" alt="Grade 8">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g83.jpeg" alt="Grade 8">
+                                    <img src="../assets/images/g83.jpeg" alt="Grade 8">
                                 </div>
                             </div>
                             <div class="slideshow-nav">
@@ -2817,13 +2711,13 @@
                         <div class="class-slideshow">
                             <div class="slideshow-track">
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g91.jpeg" alt="Grade 9">
+                                    <img src="../assets/images/g91.jpeg" alt="Grade 9">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g92.jpeg" alt="Grade 9">
+                                    <img src="../assets/images/g92.jpeg" alt="Grade 9">
                                 </div>
                                 <div class="slideshow-slide">
-                                    <img src="assets/images/g93.jpeg" alt="Grade 9">
+                                    <img src="../assets/images/g93.jpeg" alt="Grade 9">
                                 </div>
                             </div>
                             <div class="slideshow-nav">
