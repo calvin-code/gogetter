@@ -9,7 +9,7 @@
     <meta name="author" content="The Go Getter Academy">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
-    <link rel="canonical" href="https://thegogetteracademy-kyaani.com">
+    <link rel="canonical" href="https://thegogetteracademy-kyaani.in/">
     
     <!-- SEO Enhancements -->
     <meta name="copyright" content="Copyright 2025 The Go Getter Academy">
@@ -23,7 +23,7 @@
     <meta property="og:title" content="The Go Getter Academy - Kyaani | Excellence in Education">
     <meta property="og:description" content="Privately owned mixed day and boarding school offering quality education from early childhood through junior secondary school.">
     <meta property="og:image" content="https://thegogetteracademy-kyaani.com/assets/images/logo.png">
-    <meta property="og:url" content="https://thegogetteracademy-kyaani.com">
+    <meta property="og:url" content="https://thegogetteracademy-kyaani.in/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_GB">
     
@@ -41,7 +41,7 @@
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
       "name": "The Go Getter Academy - Kyaani",
-      "url": "https://thegogetteracademy-kyaani.com",
+      "url": "https://thegogetteracademy-kyaani.in",
       "logo": "https://thegogetteracademy-kyaani.com/assets/images/logo.png",
       "description": "Privately owned mixed day and boarding school offering quality education from early childhood through junior secondary school.",
       "address": {
@@ -53,7 +53,7 @@
         "addressCountry": "KE"
       },
       "telephone": "+254726061907",
-      "email": "info@thegogetteracademy-kyaani.com",
+      "email": "infoadmin@thegogetteracademy-kyaani.in",
       "foundingDate": "2010",
       "sameAs": [
         "https://www.facebook.com/GoGetterAcademy",
@@ -96,6 +96,8 @@
             line-height: 1.7;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            position: relative;
+            padding-top: 80px; /* Space for fixed header */
         }
         
         a {
@@ -208,6 +210,80 @@
             margin: 15px auto 0;
         }
         
+        /* ===== BUBBLE BACKGROUND ===== */
+        .bubble-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            filter: blur(2px);
+            animation: floatBubble linear infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes floatBubble {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(calc(100vw * var(--x-offset))) rotate(calc(360deg * var(--rotation)));
+                opacity: 0;
+            }
+        }
+        
+        /* ===== FLOATING PARTICLES ===== */
+        .floating-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: floatParticle linear infinite;
+        }
+        
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
         /* ===== HEADER & NAVIGATION ===== */
         header {
             background-color: white;
@@ -243,7 +319,7 @@
         }
         
         .logo-text {
-            font-size: 1.8rem; /* Slightly reduced for better mobile fit */
+            font-size: 2.0rem;
             font-weight: 700;
             color: var(--primary);
             text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
@@ -413,12 +489,20 @@
             color: white;
             padding: 20px;
             text-align: center;
+            opacity: 1; /* Make captions always visible */
+            transform: translateY(0);
+            transition: all 0.3s ease;
         }
         
         .welcome-slider-caption h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .welcome-slider-caption p {
+            font-size: 1rem;
+            opacity: 0.9;
         }
         
         .welcome-slider-nav {
@@ -842,23 +926,23 @@
         
         /* ===== PROGRAMS SECTION HEADER STYLES ===== */
         .programs .section-title h2 {
-            color: var(--text-light); /* White text to contrast with dark blue background */
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Subtle shadow for better readability */
+            color: var(--text-light);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
             font-size: 2.8rem;
             font-weight: 700;
             letter-spacing: 0.5px;
             margin-bottom: 15px;
-            opacity: 1; /* Fixed opacity as requested */
+            opacity: 1;
         }
 
         .programs .section-title h2::after {
-            background: linear-gradient(90deg, var(--secondary), var(--accent)); /* Gradient underline */
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
             height: 4px;
             width: 100px;
         }
 
         .programs .section-title p {
-            color: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
+            color: rgba(255, 255, 255, 0.85);
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto;
@@ -921,9 +1005,9 @@
             color: white;
             padding: 40px;
             text-align: center;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.8s ease 0.3s;
+            transform: translateY(0);
+            opacity: 1;
+            transition: all 0.8s ease;
         }
         
         .slider-slide.active .slide-caption {
@@ -1209,12 +1293,13 @@
             line-height: 1.8;
         }
         
-        /* ===== FOOTER ===== */
+        /* ===== FOOTER (Updated to match about page) ===== */
         footer {
             background-color: var(--primary);
             color: white;
             padding: 80px 0 30px;
             position: relative;
+            text-align: center; /* Center footer content */
         }
         
         footer::before {
@@ -1232,6 +1317,11 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 50px;
             margin-bottom: 50px;
+            justify-items: center; /* Center grid items */
+        }
+        
+        .footer-column {
+            text-align: center; /* Center all text */
         }
         
         .footer-column h3 {
@@ -1248,7 +1338,8 @@
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 50px;
             height: 3px;
             background-color: var(--accent);
@@ -1262,23 +1353,15 @@
         
         .footer-links {
             list-style: none;
+            padding-left: 0; /* Remove default padding */
         }
         
         .footer-links li {
             margin-bottom: 15px;
-            position: relative;
-            padding-left: 20px;
         }
         
         .footer-links li::before {
-            content: '\f054';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 5px;
-            color: var(--secondary);
-            font-size: 0.7rem;
+            display: none; /* Remove bullet icon */
         }
         
         .footer-links a {
@@ -1288,27 +1371,24 @@
         
         .footer-links a:hover {
             color: var(--secondary);
-            padding-left: 10px;
         }
         
         .contact-info p {
             position: relative;
-            padding-left: 30px;
             margin-bottom: 20px;
         }
         
         .contact-info i {
-            position: absolute;
-            left: 0;
-            top: 5px;
-            color: var(--secondary);
-            font-size: 1.1rem;
+            display: block; /* Make icons appear above text */
+            margin-bottom: 10px;
+            font-size: 1.5rem;
         }
         
         .social-links {
             display: flex;
             gap: 15px;
             margin-top: 25px;
+            justify-content: center; /* Center social icons */
         }
         
         .social-links a {
@@ -1338,7 +1418,7 @@
             color: rgba(255, 255, 255, 0.6);
         }
         
-        /* ===== BACK TO TOP BUTTON (Nitasema style) ===== */
+        /* ===== BACK TO TOP BUTTON ===== */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -1373,8 +1453,8 @@
 
         /* ===== ANIMATIONS ===== */
         @keyframes fadeIn {
-            from { opacity: 0.1; }
-            to { opacity: 7; }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         @keyframes fadeInDown {
@@ -1781,6 +1861,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Bubble Background -->
+    <div class="bubble-bg" id="bubbleBackground"></div>
+    
     <!-- ===== HEADER ===== -->
     <header id="header">
         <div class="container header-container">
@@ -1795,10 +1878,10 @@
                 </button>
                 <ul id="navMenu">
                     <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="academy.html">Academy</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about/">About</a></li>
+                    <li><a href="academy/">Academy</a></li>
+                    <li><a href="gallery/">Gallery</a></li>
+                    <li><a href="contact/">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -1806,6 +1889,7 @@
 
     <!-- ===== WELCOME SECTION (Now at Top) ===== -->
     <section class="welcome" id="welcome">
+        <div class="floating-particles" id="welcomeParticles"></div>
         <div class="container">
             <div class="section-title">
                 <h2>Welcome to Our Academy</h2>
@@ -1816,36 +1900,123 @@
                 <div class="welcome-slider-container">
                     <div class="welcome-slider-track">
                         <div class="welcome-slider-slide active">
-                            <img src="assets/images/welcome13.jpeg" alt="Students at The Go Getter Academy">
-                            <div class="welcome-slider-caption"></div>
+                            <img src="assets/images/welcome13.jpeg" alt="Interactive Lessons at The Go Getter Academy">
+                            <div class="welcome-slider-caption">
+                                <h3>Interactive Learning</h3>
+                                <p>Students engaging in hands-on activities that make learning fun and memorable</p>
+                            </div>
+                        </div>
+						<div class="welcome-slider-slide">
+                            <img src="assets/images/mombasa/mombasa43.jpg" alt="Mombasa School Trip September 2025">
+                            <div class="welcome-slider-caption">
+                                <h3>Mombasa School Trip</h3>
+                                <p>Students enjoying educational excursions to Mombasa in September 2025</p>
+                            </div>
                         </div>
                         <div class="welcome-slider-slide">
-                            <img src="assets/images/welcome2.jpeg" alt="Classroom activities at Kyaani school">
-                            <div class="welcome-slider-caption"></div>
+                            <img src="assets/images/mombasa/mombasa25.jpg" alt="Mombasa School Trip September 2025">
+                            <div class="welcome-slider-caption">
+                                <h3>Coastal Exploration</h3>
+                                <p>Students exploring the beautiful coastal region during our school trip</p>
+                            </div>
                         </div>
                         <div class="welcome-slider-slide">
-                            <img src="assets/images/welcome7.jpeg" alt="Learning environment at The Go Getter Academy">
-                            <div class="welcome-slider-caption"></div>
+                            <img src="assets/images/mombasa/mombasa29.jpg" alt="Mombasa School Trip September 2025">
+                            <div class="welcome-slider-caption">
+                                <h3>Cultural Experience</h3>
+                                <p>Students experiencing the rich culture of Mombasa during our educational trip</p>
+                            </div>
                         </div>
                         <div class="welcome-slider-slide">
-                            <img src="assets/images/welcome8.jpeg" alt="Students engaged in science activities">
-                            <div class="welcome-slider-caption"></div>
+                            <img src="assets/images/mombasa/mombasa37.jpg" alt="Mombasa School Trip September 2025">
+                            <div class="welcome-slider-caption">
+                                <h3>Educational Adventures</h3>
+                                <p>Students learning through real-world experiences during our Mombasa trip</p>
+                            </div>
                         </div>
                         <div class="welcome-slider-slide">
-                            <img src="assets/images/welcome9.jpeg" alt="Playground at The Go Getter Academy">
-                            <div class="welcome-slider-caption"></div>
+                            <img src="assets/images/welcome2.jpeg" alt="Creative Arts at The Go Getter Academy Kyaani">
+                            <div class="welcome-slider-caption">
+                                <h3>Creative Arts</h3>
+                                <p>Students expressing themselves through various art forms</p>
+                            </div>
                         </div>
                         <div class="welcome-slider-slide">
-                            <img src="assets/images/welcome10.jpeg" alt="Art class at Kyaani school">
-                            <div class="welcome-slider-caption"></div>
+                            <img src="assets/images/welcome7.jpeg" alt="Drama Festival">
+                            <div class="welcome-slider-caption">
+                                <h3>Drama Festival</h3>
+                                <p>Students showcasing their acting talents at the drama festival</p>
+                            </div>
                         </div>
                         <div class="welcome-slider-slide">
-                            <img src="assets/images/welcome3.jpeg" alt="Sports activities at The Go Getter Academy">
-                            <div class="welcome-slider-caption"></div>
+                            <img src="assets/images/welcome8.jpeg" alt="PP2 Graduation">
+                            <div class="welcome-slider-caption">
+                                <h3>PP2 Graduation</h3>
+                                <p>Celebrating our youngest graduates as they complete their early education</p>
+                            </div>
                         </div>
                         <div class="welcome-slider-slide">
-                            <img src="assets/images/welcome4.jpeg" alt="Students in library at Kyaani">
-                            <div class="welcome-slider-caption"></div>
+                            <img src="assets/images/welcome9.jpeg" alt="Drama and Music Co-Curricula Activities">
+                            <div class="welcome-slider-caption">
+                                <h3>Drama and Music</h3>
+                                <p>Students participating in co-curricular activities including drama and music</p>
+                            </div>
+                        </div>
+                        <div class="welcome-slider-slide">
+                            <img src="assets/images/welcome10.jpeg" alt="Swimming Lessons">
+                            <div class="welcome-slider-caption">
+                                <h3>Swimming Lessons</h3>
+                                <p>Students learning essential swimming skills as part of our comprehensive program</p>
+                            </div>
+                        </div>
+                        <div class="welcome-slider-slide">
+                            <img src="assets/images/welcome3.jpeg" alt="Creative Arts">
+                            <div class="welcome-slider-caption">
+                                <h3>Artistic Expression</h3>
+                                <p>Students exploring their creativity through various artistic mediums</p>
+                            </div>
+                        </div>
+                        <div class="welcome-slider-slide">
+                            <img src="assets/images/welcome4.jpeg" alt="Scouts">
+                            <div class="welcome-slider-caption">
+                                <h3>Scouts Program</h3>
+                                <p>Students developing leadership and survival skills through our scouts program</p>
+                            </div>
+                        </div>
+						<div class="welcome-slider-slide">
+                            <img src="assets/images/mombasa/mombasa1.jpg" alt="Our International Coastal Cleanup Certificate of Participation">
+                            <div class="welcome-slider-caption">
+                                <h3>Certificate of Participation</h3>
+                                <p>Our school proudly participating in the International Coastal Cleanup</p>
+                            </div>
+                        </div>
+						<div class="welcome-slider-slide">
+                            <img src="assets/images/mombasa/mombasa107.jpg" alt="Participating in The International Coastal Cleanup September 2025">
+                            <div class="welcome-slider-caption">
+                                <h3>Coastal Cleanup</h3>
+                                <p>Students actively participating in environmental conservation efforts</p>
+                            </div>
+                        </div>
+						<div class="welcome-slider-slide">
+                            <img src="assets/images/mombasa/mombasa104.jpg" alt="Participating in The International Coastal Cleanup September 2025">
+                            <div class="welcome-slider-caption">
+                                <h3>Environmental Stewardship</h3>
+                                <p>Teaching students the importance of caring for our planet</p>
+                            </div>
+                        </div>
+						<div class="welcome-slider-slide">
+                            <img src="assets/images/mombasa/mombasa112.jpg" alt="Participating in The International Coastal Cleanup September 2025">
+                            <div class="welcome-slider-caption">
+                                <h3>Community Service</h3>
+                                <p>Students engaged in community service through coastal cleanup activities</p>
+                            </div>
+                        </div>
+						<div class="welcome-slider-slide">
+                            <img src="assets/images/mombasa/mombasa89.jpg" alt="Mombasa School Trip September 2025">
+                            <div class="welcome-slider-caption">
+                                <h3>Educational Trip</h3>
+                                <p>Students learning outside the classroom during our Mombasa trip</p>
+                            </div>
                         </div>
                     </div>
                     
@@ -1901,8 +2072,8 @@
             <h1>Shaping Future Leaders</h1>
             <p>At The Go Getter Academy - Kyaani, we provide quality education that nurtures creativity, critical thinking, and character development in a supportive environment. Go for Excellence (Endea Ufanisi).</p>
             <div class="future-leaders-btns">
-                <a href="academy.html" class="btn">Explore Programs</a>
-                <a href="contact.html" class="btn btn-accent">Enroll Now</a>
+                <a href="academy/" class="btn">Explore Programs</a>
+                <a href="contact/" class="btn btn-accent">Enroll Now</a>
             </div>
             <p class="motto">Good is Good even if no one is doing it. Bad is bad even when everyone is doing it. <span>Do good always.</span></p>
         </div>
@@ -1910,6 +2081,7 @@
 
     <!-- ===== PROGRAMS SECTION ===== -->
     <section class="programs">
+        <div class="floating-particles" id="programsParticles"></div>
         <div class="container programs-container">
             <div class="section-title">
                 <h2>Our Academic Programs</h2>
@@ -2076,6 +2248,7 @@
     <!-- ===== PHOTO SLIDER ===== -->
     <section class="photo-slider">
         <div class="slider-bg"></div>
+        <div class="floating-particles" id="sliderParticles"></div>
         <div class="container">
             <div class="section-title">
                 <h2>Our Academy Life</h2>
@@ -2133,6 +2306,7 @@
 
     <!-- ===== PREVIEW TILES ===== -->
     <section class="preview-tiles">
+        <div class="floating-particles" id="tilesParticles"></div>
         <div class="container">
             <div class="section-title">
                 <h2>Explore Our Academy</h2>
@@ -2146,7 +2320,7 @@
                     <div class="tile-content">
                         <h3>About Us</h3>
                         <p>Discover our mission, vision, values and what makes our educational approach unique</p>
-                        <a href="about.html" class="btn">Learn More</a>
+                        <a href="about/" class="btn">Learn More</a>
                     </div>
                 </div>
                 <div class="tile">
@@ -2156,7 +2330,7 @@
                     <div class="tile-content">
                         <h3>Academics</h3>
                         <p>Explore our comprehensive programs, classes, curriculum and fee structure</p>
-                        <a href="academy.html" class="btn">View Details</a>
+                        <a href="academy/" class="btn">View Details</a>
                     </div>
                 </div>
                 <div class="tile">
@@ -2166,7 +2340,7 @@
                     <div class="tile-content">
                         <h3>Gallery</h3>
                         <p>See our state-of-the-art facilities, exciting events and vibrant student life</p>
-                        <a href="gallery.html" class="btn">View Photos</a>
+                        <a href="gallery/" class="btn">View Photos</a>
                     </div>
                 </div>
                 <div class="tile">
@@ -2176,7 +2350,7 @@
                     <div class="tile-content">
                         <h3>Contact Us</h3>
                         <p>Get in touch for inquiries, schedule a visit or learn about admissions</p>
-                        <a href="contact.html" class="btn">Contact Now</a>
+                        <a href="contact/" class="btn">Contact Now</a>
                     </div>
                 </div>
             </div>
@@ -2185,6 +2359,7 @@
 
     <!-- ===== CALL TO ACTION ===== -->
     <section class="cta">
+        <div class="floating-particles" id="ctaParticles"></div>
         <div class="container">
             <div class="cta-content">
                 <div class="section-title">
@@ -2192,14 +2367,15 @@
                 </div>
                 <p>We're excited to welcome new students and families to The Go Getter Academy - Kyaani. Our admissions team is ready to guide you through the enrollment process and answer any questions you may have.</p>
                 <div class="future-leaders-btns">
-                    <a href="contact.html" class="btn">Schedule a Visit</a>
+                    <a href="contact/" class="btn">Schedule a Visit</a>
                 </div>
             </div>
         </div>
     </section>
  
-    <!-- ===== FOOTER ===== -->
+    <!-- ===== FOOTER (Updated to match about page) ===== -->
     <footer>
+        <div class="floating-particles" id="footerParticles"></div>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
@@ -2216,18 +2392,20 @@
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="academy.html">Academics</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about/">About Us</a></li>
+                        <li><a href="academy/">Academics</a></li>
+                        <li><a href="gallery/">Gallery</a></li>
+                        <li><a href="contact/">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Info</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Kyaani, Machinery. P. O. BOX 66-90136 NZEEKA</p>
-                    <p><i class="fas fa-phone"></i> +254 726 061 907 / +254 726 461 738 / +254 715 883 721</p>
-                    <p><i class="fas fa-envelope"></i> info@thegogetteracademy-kyaani.com</p>
-                    <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Kyaani, Machinery. P. O. BOX 66-90136 NZEEKA</p>
+                        <p><i class="fas fa-phone"></i> +254 726 061 907 / +254 726 461 738 / +254 715 883 721</p>
+                        <p><i class="fas fa-envelope"></i> infoadmin@thegogetteracademy-kyaani.in</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 5:00 PM</p>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -2565,6 +2743,80 @@
             }
         }
         
+        // Create floating particles for sections
+        function createSectionParticles(containerId) {
+            const particlesContainer = document.getElementById(containerId);
+            if (!particlesContainer) return;
+            
+            const particleCount = 15;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 2px and 6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random opacity
+                particle.style.opacity = Math.random() * 0.3 + 0.1;
+                
+                // Random animation duration between 10s and 20s
+                const duration = Math.random() * 10 + 10;
+                particle.style.animation = `floatParticle ${duration}s linear infinite`;
+                
+                // Random delay
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Create bubble background for whole page
+        function createBubbleBackground() {
+            const bubbleBg = document.getElementById('bubbleBackground');
+            if (!bubbleBg) return;
+            
+            const bubbleCount = 25;
+            
+            for (let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                // Random size between 20px and 100px
+                const size = Math.random() * 80 + 20;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                
+                // Random position
+                bubble.style.left = `${Math.random() * 100}%`;
+                
+                // Random animation duration between 15s and 30s
+                const duration = Math.random() * 15 + 15;
+                
+                // Random properties for animation
+                bubble.style.setProperty('--x-offset', Math.random() * 2 - 1); // Between -1 and 1
+                bubble.style.setProperty('--rotation', Math.random() * 2); // Between 0 and 2
+                
+                bubble.style.animation = `floatBubble ${duration}s linear infinite`;
+                
+                // Random delay
+                bubble.style.animationDelay = `${Math.random() * 10}s`;
+                
+                // Random color
+                const colors = ['rgba(26, 58, 110, 0.1)', 'rgba(245, 166, 35, 0.1)', 'rgba(231, 76, 60, 0.1)'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                bubble.style.backgroundColor = randomColor;
+                
+                bubbleBg.appendChild(bubble);
+            }
+        }
+        
         // Scroll Animation for Elements
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.welcome-text, .welcome-slider, .highlight-card, .tile');
@@ -2610,6 +2862,13 @@
             initWelcomeSlider();
             initPhotoSlider();
             createParticles(); // Initialize particles for future leaders section
+            createSectionParticles('welcomeParticles');
+            createSectionParticles('programsParticles');
+            createSectionParticles('sliderParticles');
+            createSectionParticles('tilesParticles');
+            createSectionParticles('ctaParticles');
+            createSectionParticles('footerParticles');
+            createBubbleBackground();
             animateOnScroll();
         });
     </script>
