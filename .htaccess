@@ -1,0 +1,59 @@
+# BEGIN Basic Hardening & Performance
+
+# Prevent directory listing
+Options -Indexes
+
+# Follow symbolic links (common need on Hostinger)
+Options +FollowSymLinks
+
+# Use UTF-8 by default
+AddDefaultCharset utf-8
+
+# Force HTTPS (comment out if Hostinger handles at panel level)
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# Set long-lived caching for static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png  "access plus 1 year"
+  ExpiresByType image/gif  "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css   "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+  ExpiresDefault "access plus 1 hour"
+</IfModule>
+
+# Gzip/Deflate compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css text/javascript application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# Basic security headers
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # A relaxed CSP that allows same-origin assets plus inline styles/scripts from self only.
+  # Tighten this for your site as needed.
+  Header set Content-Security-Policy "default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; connect-src 'self'"
+</IfModule>
+
+# Hide .git and other dotfiles
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Deny access to sensitive files
+<FilesMatch "(composer\.json|package\.json|package-lock\.json|yarn\.lock|phpunit\.xml|\.env|\.sqlite|\.db)$">
+  Require all denied
+</FilesMatch>
+
+# END Basic Hardening & Performance

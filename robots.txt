@@ -1,0 +1,12 @@
+# Allow everything by default
+User-agent: *
+Disallow:
+
+# Block common private/sensitive paths (adjust as needed)
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /admin/
+Disallow: /private/
+
+# Point to your sitemap
+Sitemap: https://www.thegogetteracademy-kyaani.in/sitemap.xml
